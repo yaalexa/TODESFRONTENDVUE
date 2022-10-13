@@ -7,6 +7,7 @@ import Login from '../views/Login.vue'
 import Dashboard from '../views/Admin/Dashboard.vue'
 import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
+import Editarevento from '../views/Admin/Eventos/Editarevento.vue'
 
 Vue.use(VueRouter)
 
@@ -38,9 +39,15 @@ const routes = [
     component: Vereventos
   },
   {
-    path: '/Mostrarcategorias"',
-    name: '/Mostrarcategorias"',
+    path: '/Mostrarcategorias',
+    name: 'Mostrarcategorias',
     component: Mostrarcategorias
+  },
+
+  {
+    path: '/Editarevento',
+    name: 'Editarevento',
+    component: Editarevento
   },
 
 

@@ -20,7 +20,7 @@
                  
                     <router-link to="#">Eventos</router-link>
                     
-                     
+                    <b-dropdown-item href="/Editarevento">Editar evento</b-dropdown-item>
                      <b-dropdown-item href="/VerEventos">Ver Eventos</b-dropdown-item>
                      <b-dropdown-item href="/Mostrarcategorias">Ver  Categorias</b-dropdown-item>
           <b-dropdown-item href="#">Sign Out</b-dropdown-item>
