@@ -7,6 +7,8 @@ import Login from '../views/Login.vue'
 import Dashboard from '../views/Admin/Dashboard.vue'
 import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
+import Crearnoticia from '../views/Admin/Noticias/Crearnoticia.vue'
+
 
 Vue.use(VueRouter)
 
@@ -41,6 +43,11 @@ const routes = [
     path: '/Mostrarcategorias"',
     name: '/Mostrarcategorias"',
     component: Mostrarcategorias
+  },
+  {
+    path: '/Crearnoticia',
+    name: 'Crearnoticia',
+    component: Crearnoticia
   },
 
 

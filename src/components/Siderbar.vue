@@ -30,8 +30,10 @@
                      <a></a>
                 </li>
                 <li>
-                     <router-link to="/MostrarNoticias">Noticias</router-link>
-                     <a></a>
+                    <router-link to="#">Noticias</router-link>
+                    <b-dropdown-item href="/Crearnoticia">Crear noticias</b-dropdown-item>
+                     <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+                   
                 </li>
                 <li>
                      
