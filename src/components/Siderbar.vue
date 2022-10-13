@@ -46,6 +46,9 @@
  
  
  </template>
+ <script>
+ const QRious = require("../../node_modules/qrious/dist/qrious");
+</script>
  <style>
  #siderbar
  {
