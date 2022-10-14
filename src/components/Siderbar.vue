@@ -34,9 +34,10 @@
                      <a></a>
                 </li>
                 <li>
-                     
-                     <a>Usuario</a>
+                    <router-link to="/ListarUsuarios">Usuarios</router-link>
+                    <a></a> 
                 </li>
+
                 <li>
                      <a>Roles</a>
                 </li>
