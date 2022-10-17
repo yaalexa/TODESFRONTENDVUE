@@ -6,7 +6,7 @@ import NuevaCategoria from '../views/Categoria/NuevaCategoria.vue'
 import Login from '../views/Login.vue'
 import Dashboard from '../views/Admin/Dashboard.vue'
 import Vereventos from '../views/Admin/Eventos/Vereventos'
-import Registro from '../views/Registro.vue'
+import Registrar from '../views/Registrar.vue'
 
 Vue.use(VueRouter)
 
@@ -20,9 +20,9 @@ const routes = [
   },
 
   {
-    path: '/Registro',
-    name: 'Registro',
-    component: Registro
+    path: '/Registrar',
+    name: 'Registrar',
+    component: Registrar
   },
 
 

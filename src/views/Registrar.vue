@@ -16,7 +16,7 @@
                 <label>Identificacion</label>
               </b-col>
               <b-col sm="12">
-                <b-form-input id="" type="text"></b-form-input>
+                <b-form-input id="" type="text" v-model="user.identificacion"></b-form-input>
               </b-col>
             </b-row>
 
@@ -25,25 +25,27 @@
                 <label>Nombre</label>
               </b-col>
               <b-col sm="12">
-                <b-form-input id="" type="text"></b-form-input>
+                <b-form-input id="" type="text" v-model="user.nombre"></b-form-input>
               </b-col>
             </b-row>
 
             <b-row class="my-1">
               <b-col sm="1">
-                <label>Apellidos</label>
+                <label>Apellido</label>
               </b-col>
               <b-col sm="12">
-                <b-form-input id="" type="text"></b-form-input>
+                <b-form-input id="" type="text" v-model="user.apellido"></b-form-input>
               </b-col>
             </b-row>
+
+            
 
             <b-row class="my-1">
               <b-col sm="1">
                 <label>Correo electronico</label>
               </b-col>
               <b-col sm="12">
-                <b-form-input id="" type="email"></b-form-input>
+                <b-form-input id="" type="email"  v-model="user.email"></b-form-input>
               </b-col>
             </b-row>
 
@@ -52,38 +54,24 @@
                 <label>Contraseña</label>
               </b-col>
               <b-col sm="12">
-                <b-form-input id="" type="password"></b-form-input>
+                <b-form-input id="" type="password"  v-model="user.password"></b-form-input>
               </b-col>
             </b-row>
 
-            <b-row class="my-1">
-              <b-col sm="1">
-                <label>Genero</label>
-              </b-col>
-              <b-col sm="12">
-
-              <b-form-input id="" type="text">  </b-form-input>
-              </b-col>
-            </b-row>
-
+              
             <b-row class="my-1">
               <b-col sm="1">
                 <label>Fecha de nacimiento</label>
               </b-col>
               <b-col sm="12">
-                <b-form-input id="" type="date"></b-form-input>
+                <b-form-input id="" type="date"  v-model="user.fecha_nacimiento"></b-form-input>
               </b-col>
             </b-row>
 
-            <div class="link">
-              <b-link href="">¿Olvidaste tu contraseña?</b-link>
-            </div>
-
-            <b-button @click="Form_registro()" variant="outline-primary">ENTRAR</b-button>
+            
+            <b-button @click="Form_user()" variant="outline-primary">REGISTRARSE</b-button>
           </div>
-          <div class="link">
-            <b-link href="">¿No tienes cuenta? Registrate</b-link>
-          </div>
+          
 
 
         </b-container>
@@ -94,21 +82,40 @@
 
   </template>
   <script>
+    
     import axios from 'axios'
       export default{
-      name:'registrarse',
+      name:'Registrar',
       data(){
       
         return{
-          
+          user:{
+            identificacion:null,
+            nombre:null,
+            apellido:null,
+            fecha_nacimiento:null,
+            email:null,
+            password:null,
+            
+
+          }
         }
       },
       
       components:{},
       methods:{
-        Form_registro()
+        Form_user()
         {
-           this.$router.push('/')
+          axios.post('/' ,this.user)
+          .then(data=>{
+              console.log(data)
+              this.$router.push('/');
+                }).catch(error=>{
+                    console.log(error)
+                })   
+            
+
+           
         }
       },
       computed:{},
