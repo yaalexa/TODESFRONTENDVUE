@@ -2,7 +2,8 @@
 
     <div>
         <h1>Usuarios</h1>
-        <b-button @click="Registrar()">Registrar</b-button>
+        
+        <b-button @click="RegistrarUsuario()">Registrar Usuario</b-button>
         <b-table :fields="encabezado" :items="users">
         </b-table> 
           
@@ -15,9 +16,8 @@
     
     
     import axios from "axios"
-    //import { response } from "express";
-    // el axios permite  llamar  todas las  apis  que se hayan creado
-        export default {
+       
+    export default {
             name:"ListarUsuarios",
             data(){
               return {
@@ -26,7 +26,7 @@
             {key:"id",label:"Id"},
             {key:"identificacion",label:"Documento"},
             {key:"nombre",label:"Nombre"},
-            {key:"apellidoS",label:"Apellidos"},
+            {key:"apellidos",label:"Apellidos"},
             {key:"genero",label:"Genero"},
             {key:"fecha_nacimiento",label:"Fecha de Nacimiento"},
             {key:"email",label:"Correo Electronico"},
@@ -53,8 +53,8 @@
                     })
                 },
     
-                Registrar(){
-                    this.$router.push("Registrar")
+                RegistrarUsuario(){
+                    this.$router.push("RegistrarUsuario")
                 }
                
             }
