@@ -34,9 +34,7 @@ import axios from "axios"
         mounted(){
             this.getcategorias()
 
-            
-            
-
+                
         },
 
         methods:{

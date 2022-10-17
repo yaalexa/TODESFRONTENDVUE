@@ -1,9 +1,9 @@
 <template>
 
     <div>
-        <h1>Lista de Usuarios</h1>
-        <b-button @click="NuevoUsuario()">Nuevo Usuario</b-button>
-        <b-table :fields="encabezado" :items="categoria">
+        <h1>Usuarios</h1>
+        <b-button @click="Registrar()">Registrar</b-button>
+        <b-table :fields="encabezado" :items="users">
         </b-table> 
           
       
@@ -21,15 +21,16 @@
             name:"ListarUsuarios",
             data(){
               return {
-                categoria:[],
+                users:[],
                 encabezado:[
             {key:"id",label:"Id"},
-            {key:"nombre",label:"Nombre"},
-            {key:"apellido",label:"Apellido"},
             {key:"identificacion",label:"Documento"},
+            {key:"nombre",label:"Nombre"},
+            {key:"apellidoS",label:"Apellidos"},
+            {key:"genero",label:"Genero"},
             {key:"fecha_nacimiento",label:"Fecha de Nacimiento"},
             {key:"email",label:"Correo Electronico"},
-           { key:"password",label:"Contraseña"}],
+            {key:"password",label:"Contraseña"}],
               
               }},
             components:{
@@ -52,8 +53,8 @@
                     })
                 },
     
-                AgregarUsuario(){
-                    this.$router.push('AgregarUsuario')
+                Registrar(){
+                    this.$router.push("Registrar")
                 }
                
             }

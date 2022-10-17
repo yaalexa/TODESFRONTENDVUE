@@ -8,6 +8,8 @@ import Dashboard from '../views/Admin/Dashboard.vue'
 import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
 import ListarUsuarios from '../views/Admin/Usuarios/ListarUsuarios'
+import AgregarUsuario from '../views/Admin/Usuarios/AgregarUsuario.vue'
+import Crear from '../views/Admin/Usuarios/Crear.vue'
 
 Vue.use(VueRouter)
 
@@ -44,6 +46,27 @@ const routes = [
         component: Mostrarcategorias
     },
 
+    {
+        path: '/agregarusuario"',
+        name: '/AgregarUsuario"',
+        component: AgregarUsuario
+    },
+
+    {
+        path: '/ListarUsuarios',
+        name: 'ListarUsuarios',
+        component: ListarUsuarios
+    },
+
+    {
+        path: '/crear',
+        name: 'Crear',
+        component: Crear
+    },
+
+
+
+
 
 
     {
@@ -66,12 +89,7 @@ const routes = [
         component: NuevaCategoria
     },
 
-    {
-        path: '/ListarUsuarios',
-        name: 'ListarUsuarios',
-        component: ListarUsuarios
-    }
-
+   
 
 ]
 
