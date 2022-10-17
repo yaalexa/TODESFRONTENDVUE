@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+   <router-link to="/ListarUsuarios"ListarUsuario></router-link>
     <!--<nav>
       <router-link to="/">Home</router-link> |
 

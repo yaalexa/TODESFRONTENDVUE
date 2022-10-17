@@ -3,8 +3,8 @@
     <div>
         <h1>Usuarios</h1>
         
-        <b-button @click="RegistrarUsuario()">Registrar Usuario</b-button>
-        <b-table :fields="encabezado" :items="users">
+        <b-button @click="AgregarUsuario()">Registrar Usuario</b-button>
+        <b-table :fields="encabezado" :items="usuario">
         </b-table> 
           
       
@@ -16,12 +16,13 @@
     
     
     import axios from "axios"
+   
        
     export default {
             name:"ListarUsuarios",
             data(){
               return {
-                users:[],
+                usuario:[],
                 encabezado:[
             {key:"id",label:"Id"},
             {key:"identificacion",label:"Documento"},
@@ -53,8 +54,8 @@
                     })
                 },
     
-                RegistrarUsuario(){
-                    this.$router.push("RegistrarUsuario")
+                AgregarUsuario(){
+                    this.$router.push("AgregarUsuario")
                 }
                
             }

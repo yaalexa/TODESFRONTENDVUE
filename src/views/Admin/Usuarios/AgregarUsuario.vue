@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Nuevo Usuario</h1>
-        <label for="">Usuario</label>
+        <label for="">Documento</label>
         <b-input type="text" v-model="form.identificacion"/><br><br>
 
         <b-label for="">Nombre</b-label>
@@ -23,7 +23,8 @@
         <b-label for="">Contraseña</b-label>
         <b-input type="text" v-model="form.password"/><br>
 
-        <b-button @click="GuardarUsuario()">REGISTRAR</b-button>
+        <b-button @click="GuardarUsuario()">GUARDAR</b-button>
+    
     
         <!--el v-model es para  hacer la conecion con  el html con el script-->
     </div>
@@ -36,7 +37,6 @@
         data(){
             return{
                 form:{
-                    
                     identificacion:"",
                     nombre:"",
                     apellidos:"",

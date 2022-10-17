@@ -9,7 +9,7 @@ import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
 import ListarUsuarios from '../views/Admin/Usuarios/ListarUsuarios'
 import AgregarUsuario from '../views/Admin/Usuarios/AgregarUsuario.vue'
-import Crear from '../views/Admin/Usuarios/CrearUsuario.vue'
+import CrearUsuario from '../views/Admin/Usuarios/CrearUsuario.vue'
 
 Vue.use(VueRouter)
 
@@ -59,14 +59,10 @@ const routes = [
     },
 
     {
-        path: '/Crear',
-        name: 'Crear',
-        component: Crear
+        path: '/CrearUsuario',
+        name: 'CrearUsuario',
+        component: CrearUsuario
     },
-
-
-
-
 
 
     {
@@ -89,7 +85,19 @@ const routes = [
         component: NuevaCategoria
     },
 
-   
+    {
+        path: '/ListarUsuarios',
+        name: 'ListarUsuarios',
+        component: ListarUsuarios
+    },
+
+    
+    {
+        path: '/AgregarUsuario"',
+        name: '/AgregarUsuario"',
+        component: AgregarUsuario
+    }
+
 
 ]
 
