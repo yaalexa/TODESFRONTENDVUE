@@ -8,6 +8,7 @@ import Dashboard from '../views/Admin/Dashboard.vue'
 import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
 import Editarevento from '../views/Admin/Eventos/Editarevento.vue'
+import Vistausuarios from '../views/vusuario/Vistausuarios.vue'
 
 Vue.use(VueRouter)
 
@@ -18,6 +19,11 @@ const routes = [
     path: '/',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/Vistausuarios',
+    name: 'Vistausuarios',
+    component: Vistausuarios
   },
 
   {
