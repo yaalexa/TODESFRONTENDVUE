@@ -2,10 +2,15 @@
   
   
   
-  <section class="vh-100" style="background-color: #00ADB5">
+  <section class="vh-100" style="background-color: #6f42c1" >
 
   <!--DIV TODO, va a tener todos los eventos-->
-  <div class="container">
+  <div class="container" width="50">
+    <navbar></navbar>
+    <siderbar>
+      <navbar></navbar>
+      
+    </siderbar>
    
 
     <!--Div por evento-->
@@ -46,15 +51,18 @@
             <b-form-textarea placeholder="Ingrese sus comentarios" id="textarea-default"></b-form-textarea>
           </b-col>
         </b-row>
+        <br>
         <b-button variant="success">Guardar Comentario</b-button>
       </div>
-      
-
+      <br>
       <div>
         <label for="Inline-rating">Calificacion:</label>
         <!--Calificación-->
-        <b-form-rating id="rating-inline" inline value="5"></b-form-rating>
+        <b-form-rating id="rating-inline" inline value="4"></b-form-rating>
       </div>
+
+    
+
     </div>
 
     <!--Div por evento-->
@@ -67,13 +75,20 @@
 </template>
 
 <script>
+import axios from 'axios'
+import siderbar from '../../components/Siderbar.vue'
+    import navbar from '../../components/Navbar.vue'
 export default {
-  data() {
+    data() {
     return {
       title: "Evento 1"
-      , textArea: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum."
+      ,textArea: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum."
       , date: "16/10/2022 2:00 pm"
     }
-  }
+  },
+  components:{
+        siderbar,
+        navbar
+      },
 }
 </script>
