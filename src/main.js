@@ -20,7 +20,7 @@ Vue.use(VueAxios,axios) //
 Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false
-
+Vue.use(VueAxios, axios)
 new Vue({
     router,
     render: h => h(App)
