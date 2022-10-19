@@ -26,7 +26,9 @@ import axios from 'axios'
       
       components:{
         siderbar,
-        navbar
+        navbar,
+        
+        
       },
       methods:{
         

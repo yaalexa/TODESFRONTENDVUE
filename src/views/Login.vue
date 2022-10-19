@@ -1,6 +1,6 @@
 <template>
 
-<section class="vh-100" style="background-color: #00ADB5">
+<section class="vh-100" >
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
@@ -13,7 +13,7 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form>
+                <form class="form_container">
 
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
@@ -23,17 +23,22 @@
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Iniciar sesión en su cuenta</h5>
 
                   <div class="form-outline mb-4">
-                    <input type="email" id="form2Example17" class="form-control form-control-lg" />
+                    <input type="email" id="form2Example17" class="form-control form-control-lg" placeholder="Correo" />
                     <label class="form-label" for="form2Example17">Email</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="form2Example27" class="form-control form-control-lg" />
                     <label class="form-label" for="form2Example27">Password</label>
+                    <input type="password" id="form2Example27" class="form-control form-control-lg"  placeholder="Password"/>
+                     
+                       <div class="custom-control custom-checkbox">
+                           <input id="remember-me" type="checkbox" name="checkbox-1" class="custom-control-input" value="true">
+                           <label for="remember-me" class="custom-control-label"> Remember Me </label>
+                       </div>
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <button @click="Ingresar()" class="btn btn-success btn-lg btn-block" type="button">Login</button>
+                    <button @click="Ingresar()" class="btn_login" type="button">Login</button>
                   </div>
 
                   <a class="small text-muted" href="#!">¿Se te olvidó tu contraseña?</a>
@@ -52,15 +57,14 @@ Registrarse aquí</a></p>
   </div>
 </section>
 
+</template>
 
 
-
-
-<!--++++++++++++++++++++++++++++++++++++-->
+<!--++++++++++++++++++++++++++++++++++++---->
     
 
 
-</template>
+
 
 
 <script>
@@ -85,5 +89,14 @@ import axios from "axios"
 
 
 <style>
-
+.vh-100{
+  
+  background-color:#161D31
+}
+.form_container{
+  background-color:#273353
+}
+.btn_login{
+  background-color:#7367f0
+}
 </style>

@@ -1,44 +1,40 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand href="#">NavBar</b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-item href="#">Link</b-nav-item>
-          <b-nav-item href="#" disabled>Disabled</b-nav-item>
-        </b-navbar-nav>
-        <b-navbar-nav class="ml-auto">
-
-
-          <b-nav-item-dropdown text="Lang" right>
-            <b-dropdown-item href="#">EN</b-dropdown-item>
-            <b-dropdown-item href="#">ES</b-dropdown-item>
-            <b-dropdown-item href="#">RU</b-dropdown-item>
-            <b-dropdown-item href="#">FA</b-dropdown-item>
-          </b-nav-item-dropdown>
-
-          <b-nav-item-dropdown right>
-          <!-- Using 'button-content' slot -->
-          <template #button-content>
-            <em>User</em>
-          </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-        </b-nav-item-dropdown>
-        </b-navbar-nav>
-      </b-collapse>
-    
-
-
-
-
-
-    </b-navbar>
-  </div>
+    <b-navbar>
+      <div>
+         
+             <div class="vertical-layout.h-100.vertical-menu-modern.menu-expanded.navbar-floating.footer-static">
+                <nav class="navbar header-navbar navbar navbar-shadow align-items-center navbar-light navbar-expand floating-nav">
+                    <div class="navbar-container d-flex content align-items-center">
+                      <b-tabs content-class="mt-3">
+                         <b-tab title="First" active><p>I'm the first tab</p></b-tab>
+                           <b-tab title="Second"><p>I'm the second tab</p></b-tab>
+                            <b-tab title="Disabled" disabled><p>I'm a disabled tab!</p></b-tab>
+                      </b-tabs>
+                   </div>
+                </nav>
+      </div>
+    </div>
+  </b-navbar>
+</div>
 </template>
 
 <style>
+.dark-layout .header-navbar {
+    background-color: #283046;
+}
+.header-navbar.navbar-shadow {
+    box-shadow: 0 4px 24px 0 rgb(34 41 47 / 10%);
+}
+.header-navbar.floating-nav {
+    right: 0;
+}
+.header-navbar.floating-nav {
+    margin: 1.3rem 2rem 0;
+    border-radius: 0.428rem;
+}
+.navbar-floating .navbar-container {
+    padding: 0.8rem 1rem;
+}
 
 </style>
