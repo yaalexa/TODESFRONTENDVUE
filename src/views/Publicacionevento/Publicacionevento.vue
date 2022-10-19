@@ -2,17 +2,17 @@
 
     <div>
         <h1>Mostar Publicaciones eventos</h1>
-        <b-button @click="NuevaCategoria()">Nueva Categoria</b-button>
+       
         <b-table sticky-header striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
 
             <template v-slot:cell(insertar)="data">
-                <b-button variant="danger" size="sm" @click="insertar(data.id)">Nuevo</b-button>
+                <b-button variant="danger" size="sm" @click="insertar(NuevaCategoria())">Nuevo</b-button>
             </template>
 
             <template v-slot:cell(editar)="data">
 
-                <b-button variant="primary" size="sm" @click="insertar(data.id)">Editar</b-button>
-                
+                <b-button variant="primary" size="sm" @click="editar(data.id)">Editar</b-button>
+              
             </template>
 
 
@@ -53,6 +53,7 @@ export default {
                 { key: "insertar", label: "Insertar" },
 
                 { key: "editar", label: "Editar" },
+                
                 { key: "eliminar", label: "Eliminar" },
 
             ],
@@ -79,7 +80,7 @@ export default {
         },
 
         NuevaCategoria() {
-            this.$router.push('NuevaCategoria')
+            this.$router.push('Nuevapublicacionevento')
         }
 
     }

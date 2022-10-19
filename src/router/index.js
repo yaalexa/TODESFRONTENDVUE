@@ -8,6 +8,7 @@ import Dashboard from '../views/Admin/Dashboard.vue'
 import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
 import Publicacionevento from '../views/Publicacionevento/Publicacionevento.vue'
+import Nuevapublicacionevento from '../views/Publicacionevento/Nuevapublicacionevento'
 
 Vue.use(VueRouter)
 
@@ -31,6 +32,12 @@ const routes = [
     path: '/Publicacionevento',
     name: 'Publicacionevento',
     component: Publicacionevento
+  },
+
+  {
+    path: '/Nuevapublicacionevento',
+    name: 'Nuevapublicacionevento',
+    component: Nuevapublicacionevento
   },
 
   {
