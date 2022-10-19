@@ -7,6 +7,7 @@ import Login from '../views/Login.vue'
 import Dashboard from '../views/Admin/Dashboard.vue'
 import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
+import Publicacionevento from '../views/Publicacionevento/Publicacionevento.vue'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,12 @@ const routes = [
     component: Registro
   },
 
+
+  {
+    path: '/Publicacionevento',
+    name: 'Publicacionevento',
+    component: Publicacionevento
+  },
 
   {
     path: '/Dashboard',

@@ -30,7 +30,7 @@
                      <a></a>
                 </li>
                 <li>
-                     <router-link to="/MostrarNoticias">Noticias</router-link>
+                     <router-link to="/Publicacionevento">Publicaciones&Evento</router-link>
                      <a></a>
                 </li>
                 <li>
