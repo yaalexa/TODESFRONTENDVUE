@@ -10,6 +10,7 @@ import Registro from '../views/Registro.vue'
 import Editarevento from '../views/Admin/Eventos/Editarevento.vue'
 import Vistausuarios from '../views/vusuario/Vistausuarios.vue'
 import Vusuarios from '../views/vusuario/Vusuarios.vue'
+import Listaeventos from '../views/Admin/Eventos/Listaeventos.vue'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,11 @@ const routes = [
     path: '/Vistausuarios',
     name: 'Vistausuarios',
     component: Vistausuarios
+  },
+  {
+    path: '/Listaeventos',
+    name: 'Listaeventos',
+    component: Listaeventos
   },
   {
     path: '/Vusuarios',

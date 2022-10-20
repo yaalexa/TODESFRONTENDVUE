@@ -1,6 +1,6 @@
 <template>
   
-  
+ 
   
   <section class="vh-100" style="background-color: #6f42c1" >
 
@@ -11,8 +11,8 @@
       <navbar></navbar>
       
     </siderbar>
-   
-
+    <v-for>
+  
     <!--Div por evento-->
     <div>
 
@@ -61,10 +61,10 @@
         <b-form-rating id="rating-inline" inline value="4"></b-form-rating>
       </div>
 
-    
-
     </div>
-
+  </v-for>
+ 
+<br>
     <!--Div por evento-->
     <div>
       <h1>Segundo evento...</h1>
