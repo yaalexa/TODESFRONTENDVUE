@@ -1,9 +1,12 @@
 <template>
-<div>
+    
+    <div>
+    
+    <div class="container py-5 h-100"></div>
     <h1>Nueva Categoria</h1>
-    <label for="">Categorias</label>
+    <label for="">Nombre de categoria</label>
 
-    <b-input type="text" v-model="form.nombre"/><br><br>
+    <b-input class="mx-5" type="text" v-model="form.nombre"/><br><br>
     <b-label for="">Descripcion</b-label>
     <b-input type="text" v-model="form.descripcion"/><br>
 
@@ -30,6 +33,7 @@ export default {
       GuardarCategoria(){
          this.axios.post("http://127.0.0.1:8000/api/categoria",this.form).then((data)=>
          {console.log(data);
+            alert("QUEDO GUARDADA LA CATEGORIA");
         });
       }
     }
@@ -37,4 +41,7 @@ export default {
 </script>
 
 <style>
+label{
+    height: 50px;
+}
 </style>
