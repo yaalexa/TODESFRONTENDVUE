@@ -49,12 +49,16 @@ export default {
                 fecha:"",
                 tipo:"",
                
+             
             }
           
         }
     },
     methods:{
       GuardarPublicacion(){
+
+      
+
          this.axios.post("http://127.0.0.1:8000/api/publicacion",this.form).then((data)=>
          {console.log(data);
         }

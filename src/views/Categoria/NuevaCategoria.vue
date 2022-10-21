@@ -2,8 +2,8 @@
 <div>
     <h1>Nueva Categoria</h1>
     <label for="">Categorias</label>
-
     <b-input type="text" v-model="form.nombre"/><br><br>
+    
     <b-label for="">Descripcion</b-label>
     <b-input type="text" v-model="form.descripcion"/><br>
 
