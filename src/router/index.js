@@ -7,9 +7,9 @@ import Login from '../views/Login.vue'
 import Dashboard from '../views/Admin/Dashboard.vue'
 import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
-import Editarevento from '../views/Admin/Eventos/Editarevento.vue'
+
 import Vistausuarios from '../views/vusuario/Vistausuarios.vue'
-import Vusuarios from '../views/vusuario/Vusuarios.vue'
+
 import Listaeventos from '../views/Admin/Eventos/Listaeventos.vue'
 
 Vue.use(VueRouter)
@@ -32,11 +32,7 @@ const routes = [
     name: 'Listaeventos',
     component: Listaeventos
   },
-  {
-    path: '/Vusuarios',
-    name: 'Vusuarios',
-    component: Vusuarios
-  },
+ 
 
   {
     path: '/Registro',
@@ -62,12 +58,7 @@ const routes = [
     component: Mostrarcategorias
   },
 
-  {
-    path: '/Editarevento',
-    name: 'Editarevento',
-    component: Editarevento
-  },
-
+  
 
 
   {

@@ -7,10 +7,12 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="Listaeventos">Eventos</b-nav-item>
+          <b-nav-item href="Vistausuarios">Usuario</b-nav-item>
+          <b-nav-item href="Listaeventos">Lista eventos</b-nav-item>
           <b-nav-item href="Noticias">Noticias</b-nav-item>
           <b-nav-item href="Denuncias">Denuncias</b-nav-item>
           <b-nav-item href="Perfil">Perfil</b-nav-item>
+          
         </b-navbar-nav>
         
       </b-collapse>
