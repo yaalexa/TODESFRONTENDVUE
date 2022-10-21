@@ -1,9 +1,24 @@
 <template>
 
-    <div>
+    <div >
         <h1>Mostar Publicaciones eventos</h1>
        
+        <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      aria-controls="my-table"
+    ></b-pagination>
+
+
+    <p class="mt-3">Current Page: {{ currentPage }}</p>
+
+
         <b-table sticky-header striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
+       
+            
+
+
 
             <template v-slot:cell(insertar)="data">
                 <b-button variant="danger" size="sm" @click="insertar(NuevaCategoria())">Nuevo</b-button>
