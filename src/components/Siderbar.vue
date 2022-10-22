@@ -1,59 +1,16 @@
+
 <template>
-
-
-
-    <div id="content">
-       
-       <nav id="siderbar">
-          <div class="siderbar-header">
-          
-            <b-img class="icon" :src="require('@/assets/lgtb.png')" fluid></b-img>
-          
-         </div>
+  <div>
+    <b-button v-b-toggle.sidebar-1>Toggle Sidebar</b-button>
+    <b-sidebar id="sidebar-1" title="Sidebar" shadow>
+      <div class="px-3 py-2">
+        <p>
+          Vista Usuarios
+        </p>
+        <b-img class="icon" :src="require('@/assets/lgtb.png' )" fluid></b-img>
+      </div>
+    </b-sidebar>
+  </div>
+</template>   
  
-            <ul>
-                <li>
-                     <router-link to="/MostrarIncidencias">Incidencias</router-link>
-                    <a></a>         
-                </li>
-                <li>
-                 
-                    <router-link to="#">Eventos</router-link>
-                    
-                     
-                     <b-dropdown-item href="/VerEventosss">Ver Eventos</b-dropdown-item>
-                     <b-dropdown-item href="/Mostrarcategorias">Ver  Categorias</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-                  </li>
-                <li>
-                     <router-link to="/MostrarReportes">Reportes</router-link>
-                     <a></a>
-                </li>
-                <li>
-                    <router-link to="#">Noticias</router-link>
-                    <b-dropdown-item href="/Crearnoticia">Crear noticias</b-dropdown-item>
-                     <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-                   
-                </li>
-                <li>
-                     
-                     <a>Usuario</a>
-                </li>
-                <li>
-                     <a>Roles</a>
-                </li>
-            </ul>
-       </nav>
-    </div>
- 
- 
- </template>
- <style>
- #siderbar
- {
-     width: 20%;
-     height: 100vh;
-     background: #00ADB5;
-     float: left;
- }
- </style>
+

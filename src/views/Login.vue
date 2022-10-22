@@ -74,7 +74,7 @@ import axios from "axios"
       methods:{
          Ingresar()
          {
-            this.$router.push('/Dashboard')
+            this.$router.push('/Vistausuarios')
          }
       },
       computed:{},

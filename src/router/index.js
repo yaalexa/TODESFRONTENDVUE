@@ -10,6 +10,10 @@ import Registro from '../views/Registro.vue'
 import Crearnoticia from '../views/Admin/Noticias/Crearnoticia.vue'
 
 
+import Vistausuarios from '../views/vusuario/Vistausuarios.vue'
+
+import Listaeventos from '../views/Admin/Eventos/Listaeventos.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,6 +24,17 @@ const routes = [
     name: 'Login',
     component: Login
   },
+  {
+    path: '/Vistausuarios',
+    name: 'Vistausuarios',
+    component: Vistausuarios
+  },
+  {
+    path: '/Listaeventos',
+    name: 'Listaeventos',
+    component: Listaeventos
+  },
+ 
 
   {
     path: '/Registro',
@@ -40,8 +55,8 @@ const routes = [
     component: Vereventos
   },
   {
-    path: '/Mostrarcategorias"',
-    name: '/Mostrarcategorias"',
+    path: '/Mostrarcategorias',
+    name: 'Mostrarcategorias',
     component: Mostrarcategorias
   },
   {
@@ -50,6 +65,7 @@ const routes = [
     component: Crearnoticia
   },
 
+  
 
 
   {
