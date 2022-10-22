@@ -4,7 +4,7 @@ import HomeView from '../views/HomeView.vue'
 import Mostrarcategorias from '../views/Categoria/Mostrar.vue'
 import NuevaCategoria from '../views/Categoria/NuevaCategoria.vue'
 import Login from '../views/Login.vue'
-import Dashboard from '../views/Admin/Dashboard.vue'
+
 import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
 
@@ -41,11 +41,7 @@ const routes = [
   },
 
 
-  {
-    path: '/Dashboard',
-    name: 'Dashboard',
-    component: Dashboard
-  },
+ 
   
   {
     path: '/Vereventos',

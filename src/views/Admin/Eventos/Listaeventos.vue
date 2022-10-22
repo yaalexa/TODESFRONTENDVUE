@@ -1,13 +1,11 @@
-<template>
+<!--<template>
  
     <div class="edwin">
       
       
       <navbar></navbar>
       
-      <siderbar>
-      <navbar></navbar>      
-       </siderbar>
+     
 
       <h1>Lista de eventos</h1>
       <h2>
@@ -29,7 +27,7 @@
   </template>
   <script>
   import axios from 'axios'
-   import siderbar from '../../../components/Siderbar.vue'
+  
     import navbar from '../../../components/Navbar.vue'
     export default{
       ata(){
@@ -40,10 +38,10 @@
       },
       
       components:{
-        siderbar,
+       
         navbar
       },
       methods:{
        } 
       }
-  </script> 
+  </script> -->
