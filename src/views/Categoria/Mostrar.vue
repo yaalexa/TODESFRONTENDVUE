@@ -2,10 +2,25 @@
 
 <div>
     <h1>Mostar categorias</h1>
-    <b-button @click="NuevaCategoria()">Nueva Categoria</b-button>
-    <b-table :fields="encabezado" :items="categoria">
-    </b-table> 
-      
+
+    
+    <b-button  @click="NuevaCategoria()">Nueva Categoria</b-button>
+      <b-table sticky-header striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
+
+           
+            <template v-slot:cell(editar)="data">
+
+                <b-button variant="primary" size="sm" @click="editar(data.id)">Editar</b-button>
+              
+            </template>
+
+
+            <template v-slot:cell(eliminar)="data">
+                <b-button variant="danger" size="sm" @click="eliminar(data.id)">Eliminar</b-button>
+            </template>
+
+           
+        </b-table>
   
 </div>
 </template>
@@ -24,10 +39,12 @@ import axios from "axios"
             categoria:[],
             encabezado:[
         {key:"id",label:"Id"},
-        {key:"nombre",label:"Nombre"},
-       { key:"descripcion",label:"Descripcion"}],
-          
-          }},
+        {key:"nombre",label:"Categoria"},
+        { key:"descripcion",label:"Descripcion"},
+        { key:"Nuevo",label:"Nuevo"},
+        { key: "editar", label: "Editar" },
+        { key: "eliminar", label: "Eliminar" },
+          ]}},
         components:{
 
         },

@@ -4,13 +4,13 @@
     
     <div class="container py-5 h-100"></div>
     <h1>Nueva Categoria</h1>
-    <label for="">Nombre de categoria</label>
+    <label for="">Nombre categoria</label>
 
     <b-input class="mx-5" type="text" v-model="form.nombre"/><br><br>
     <b-label for="">Descripcion</b-label>
     <b-input type="text" v-model="form.descripcion"/><br>
 
-    <b-button @click="GuardarCategoria()">REGISTRAR</b-button>
+    <b-button variant="primary" @click="GuardarCategoria()">REGISTRAR</b-button>
 
     <!--el v-model es para  hacer la conecion con  el html con el script-->
 </div>
@@ -33,7 +33,8 @@ export default {
       GuardarCategoria(){
          this.axios.post("http://127.0.0.1:8000/api/categoria",this.form).then((data)=>
          {console.log(data);
-            alert("QUEDO GUARDADA LA CATEGORIA");
+            
+            this.$router.push('/Categoria');
         });
       }
     }
@@ -42,6 +43,6 @@ export default {
 
 <style>
 label{
-    height: 50px;
+    height: 40px;
 }
 </style>
