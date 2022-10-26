@@ -7,10 +7,14 @@
     <label for="">Nombre categoria</label>
 
     <b-input class="mx-5" type="text" v-model="form.nombre"/><br><br>
+
     <b-label for="">Descripcion</b-label>
     <b-input type="text" v-model="form.descripcion"/><br>
 
     <b-button variant="primary" @click="GuardarCategoria()">REGISTRAR</b-button>
+
+    
+
 
     <!--el v-model es para  hacer la conecion con  el html con el script-->
 </div>
@@ -36,7 +40,9 @@ export default {
             
             this.$router.push('/Categoria');
         });
-      }
+      },
+
+    
     }
 }
 </script>

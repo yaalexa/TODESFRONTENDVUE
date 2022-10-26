@@ -23,6 +23,7 @@
         </b-table>
   
 </div>
+
 </template>
 
 <script>
@@ -32,6 +33,7 @@
 import axios from "axios"
 //import { response } from "express";
 // el axios permite  llamar  todas las  apis  que se hayan creado
+
     export default {
         name:"Mostrarcategorias",
         data(){
@@ -47,30 +49,33 @@ import axios from "axios"
           ]}},
         components:{
 
+    },
+    mounted() {
+        this.getcategorias()
+        this.EliminarCategoria()
+
+    },
+
+    methods: {
+
+        getcategorias() {
+            this.axios.get("http://127.0.0.1:8000/api/categoria").then((response) => {
+                this.categoria = response.data;
+            })
         },
-        mounted(){
-            this.getcategorias()
 
-            
-            
-
+        NuevaCategoria() {
+            this.$router.push('NuevaCategoria')
         },
 
-        methods:{
-
-            getcategorias(){
-                this.axios.get("http://127.0.0.1:8000/api/categoria").then((response)=>
-                {
-                   this.categoria=response.data;
-                })
-            },
-
-            NuevaCategoria(){
-                this.$router.push('NuevaCategoria')
-            }
-           
+        EliminarCategoria() {
+            this.axios.delete("http://127.0.0.1:8000/api/categoria/{id}", this.form).then((data) => {
+                console.log(data);
+            });
         }
+
     }
+}
 
 </script>
 
