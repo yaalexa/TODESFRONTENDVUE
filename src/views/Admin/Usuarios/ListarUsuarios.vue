@@ -55,7 +55,7 @@
                 },
     
                 AgregarUsuario(){
-                    this.$router.push("AgregarUsuario")
+                    this.$router.push("/AgregarUsuario")
                 }
                
             }

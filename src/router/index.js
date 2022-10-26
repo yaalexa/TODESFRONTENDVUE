@@ -93,8 +93,8 @@ const routes = [
 
     
     {
-        path: '/AgregarUsuario"',
-        name: '/AgregarUsuario"',
+        path: '/AgregarUsuario',
+        name: '/AgregarUsuario',
         component: AgregarUsuario
     }
 
