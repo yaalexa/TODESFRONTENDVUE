@@ -6,8 +6,8 @@
        
         <b-table sticky-header striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
 
-            <template v-slot:cell(insertar)="data">
-                <b-button variant="danger" size="sm" @click="insertar(NuevaCategoria())">Nuevo</b-button>
+            <template v-slot:cell(insertar)="insertar">
+             <b-button variant="danger" size="sm" @click="insertar(NuevaCategoria())">Nuevo</b-button>
             </template>
 
             <template v-slot:cell(editar)="data">
