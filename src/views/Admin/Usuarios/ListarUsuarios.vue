@@ -1,25 +1,31 @@
 <template>
 
-    <div>
-        <h1>Usuarios</h1>
+  <div>
+
+<h1>Usuarios</h1>
         
         <table class="table table-striped table-bordered table-list">
         
                           
         </table>   
+        
         <div class="panel-heading">
                 <div class="row">
                   <div class="col col-xs-6">
                     <h3 class="panel-title">Panel Heading</h3>
                   </div>
-                  <div class="col col-xs-6 text-right">
+                  
+                  <div class="col col-xs-6 text-lefth">
                     <button type="button" class="btn btn-sm btn-primary btn-create">Create New</button>
                   </div>
                 </div>
               </div>
               <div class="panel-body">
                 <table class="table table-striped table-bordered table-list">
+
+                  
                   <thead>
+                    
                     <tr>
                         <th><em class="fa fa-cog"></em></th>
                         <b-button variant="warning" @click="AgregarUsuario()">Registrar Usuario</b-button>
@@ -42,7 +48,13 @@
             <tbody>
 
                
-                              <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
+                              <a class="btn btn-default"><em class="fa fa-pencil">
+
+                                <tbody>
+                        
+                        </tbody>
+
+                              </em></a>
                          
             </tbody>
         </div>
@@ -75,7 +87,10 @@
             {key:"genero",label:"Genero"},
             {key:"fecha_nacimiento",label:"Fecha de Nacimiento"},
             {key:"email",label:"Correo Electronico"},
-            {key:"password",label:"Contraseña"}],
+            {key:"password",label:"Contraseña"},
+            {key:"editar",label:"Editar"},
+            {key:"eliminar",label:"Eliminar"}
+          ],
               
             
               }},
@@ -100,7 +115,7 @@
                 },
     
                 AgregarUsuario(){
-                    this.$router.push("AgregarUsuario")
+                    this.$router.push("/AgregarUsuario")
                 },
 
                 totalPagina(){
