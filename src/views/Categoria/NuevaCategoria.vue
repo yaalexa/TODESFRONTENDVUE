@@ -43,6 +43,6 @@ export default {
 
 <style>
 label{
-    height: 40px;
+    height: 50px;
 }
 </style>
