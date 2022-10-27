@@ -10,7 +10,8 @@
               <h1 class="text-center">Registro de Nueva Publicacion</h1>
     <hr>
 
-    <div class="form-group">
+    <div class="form-group" >
+
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-11">
                                 <input id="fname" name="name" type="text" placeholder="Nombre" class="form-control"  v-model="form.nombre"/>
@@ -83,14 +84,9 @@
                                 <input id="fname" name="name" type="text" placeholder="Tipo" class="form-control" v-model="form.tipo" />
                             </div>
                         </div>
-   
- 
-    
-   
- 
   
 
-    <b-button @click="GuardarPublicacion()">REGISTRAR</b-button>
+       <b-button variant="outline-success"  @click="GuardarPublicacion()">REGISTRAR</b-button>
         
             </fieldset>
        
@@ -139,4 +135,13 @@ export default {
   }
 }
 </script>
+
+<style>
+.form-group{
+  margin-top: 20px;
+
+}
+
+
+</style>
 
