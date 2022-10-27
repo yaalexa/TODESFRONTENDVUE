@@ -1,12 +1,13 @@
 <template>
 
     <div>
-        <h1>Mostar Publicaciones eventos</h1>
+        <h1 class="text-center">Mostar Publicaciones eventos</h1>
+        <hr>
        
         <b-table sticky-header striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
 
-            <template v-slot:cell(insertar)="data">
-                <b-button variant="danger" size="sm" @click="insertar(NuevaCategoria())">Nuevo</b-button>
+            <template v-slot:cell(insertar)="insertar">
+             <b-button variant="danger" size="sm" @click="insertar(NuevaCategoria())">Nuevo</b-button>
             </template>
 
             <template v-slot:cell(editar)="data">
@@ -17,7 +18,7 @@
 
 
             <template v-slot:cell(eliminar)="data">
-                <b-button variant="danger" size="sm" @click="eliminar(data.id)">Eliminar</b-button>
+                <b-button variant="danger" size="sm" @click="EliminarPublicacion(data.id)">Eliminar</b-button>
             </template>
 
            
@@ -65,7 +66,7 @@ export default {
     },
     mounted() {
         this.getcategorias()
-
+        this.EliminarPublicacion()
 
 
 
@@ -81,9 +82,22 @@ export default {
 
         NuevaCategoria() {
             this.$router.push('Nuevapublicacionevento')
+        },
+
+        EliminarPublicacion(id){
+      
+            this.axios.delete("http://127.0.0.1:8000/api/publicacion/id").then((response) => {
+                this.publicacion = response.data;
+                console.log("www")
+               
+            })
+      
         }
 
+
     }
+
+    
 }
 
 </script>
