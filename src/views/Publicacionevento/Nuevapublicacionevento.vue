@@ -66,7 +66,7 @@
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-11">
-                                <input id="fname" name="name" type="text" placeholder="Responsable" class="form-control" v-model="form.responsable" />
+                                <input id="fresponsable" name="name" type="text" placeholder="Responsable" class="form-control" v-model="form.responsable" />
                             </div>
                         </div>
    
@@ -139,4 +139,18 @@ export default {
   }
 }
 </script>
+
+<style>
+#fname{
+
+  background: red;
+  padding:1em;
+}
+
+#freponsable{
+
+padding: auto;
+}
+
+</style>
 
