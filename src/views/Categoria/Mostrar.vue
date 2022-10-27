@@ -8,9 +8,9 @@
 
         <b-table :fields="encabezado" :items="categoria">
 
-            <template v-slot:cell(eliminar)="id">
+            <template v-slot:cell(eliminar)="data">
                 <button @click="EliminarCategoria(id)" class="btn btn-danger"></button>
-                <b-button @click="EliminarCategoria()">Eliminar</b-button>
+                <b-button @click="EliminarCategoria(data.item.id)">Eliminar</b-button>
             </template>
         </b-table>
 
@@ -45,7 +45,7 @@ export default {
     },
     mounted() {
         this.getcategorias()
-        this.EliminarCategoria()
+        this.EliminarCategoria(id)
 
     },
 
@@ -61,8 +61,8 @@ export default {
             this.$router.push('NuevaCategoria')
         },
 
-        EliminarCategoria() {
-            this.axios.delete("http://127.0.0.1:8000/api/categoria/{id}", this.form).then((data) => {
+        EliminarCategoria(id) {
+            this.axios.delete("http://127.0.0.1:8000/api/categoria/"+id, this.form).then((data) => {
                 console.log(data);
             });
         }
