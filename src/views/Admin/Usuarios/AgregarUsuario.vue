@@ -32,6 +32,7 @@
     
     <script>
     import axios from "axios"
+    import Swal from 'sweetalert2'
     export default {
         name:"AgregarUsuario",
         data(){
@@ -50,9 +51,18 @@
         },
         methods:{
           GuardarUsuario(){
+            
              this.axios.post("http://127.0.0.1:8000/api/usuario",this.form).then((data)=>
              {console.log(data);
+                Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Registro exitoso',
+                showConfirmButton: false,
+                timer: 1500
+                })
             });
+      
           }
         }
     }

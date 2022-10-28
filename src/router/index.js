@@ -7,14 +7,49 @@ import Login from '../views/Login.vue'
 import Dashboard from '../views/Admin/Dashboard.vue'
 import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
+
+import Publicacionevento from '../views/Publicacionevento/Publicacionevento.vue'
+import Nuevapublicacionevento from '../views/Publicacionevento/Nuevapublicacionevento'
+
 import ListarUsuarios from '../views/Admin/Usuarios/ListarUsuarios'
 import AgregarUsuario from '../views/Admin/Usuarios/AgregarUsuario.vue'
 import CrearUsuario from '../views/Admin/Usuarios/CrearUsuario.vue'
+
 
 Vue.use(VueRouter)
 
 const routes = [
 
+
+
+  {
+    path: '/Publicacionevento',
+    name: 'Publicacionevento',
+    component: Publicacionevento
+  },
+
+  {
+    path: '/Nuevapublicacionevento',
+    name: 'Nuevapublicacionevento',
+    component: Nuevapublicacionevento
+  },
+
+  {
+    path: '/Dashboard',
+    name: 'Dashboard',
+    component: Dashboard
+  },
+  
+  {
+    path: '/Vereventos',
+    name: 'Vereventos',
+    component: Vereventos
+  },
+  {
+    path: '/Mostrarcategorias"',
+    name: '/Mostrarcategorias"',
+    component: Mostrarcategorias
+  },
 
     {
         path: '/',
@@ -27,6 +62,7 @@ const routes = [
         name: 'Registro',
         component: Registro
     },
+
 
 
     {

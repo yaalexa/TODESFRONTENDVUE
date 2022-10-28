@@ -9,6 +9,9 @@
 
     <b-button @click="GuardarCategoria()">REGISTRAR</b-button>
 
+    
+
+
     <!--el v-model es para  hacer la conecion con  el html con el script-->
 </div>
 </template>
@@ -31,7 +34,9 @@ export default {
          this.axios.post("http://127.0.0.1:8000/api/categoria",this.form).then((data)=>
          {console.log(data);
         });
-      }
+      },
+
+    
     }
 }
 </script>
