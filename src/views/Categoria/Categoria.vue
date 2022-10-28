@@ -62,9 +62,10 @@
                     })
                 },
     
-                NuevaCategoria(){
+                 NuevaCategoria(){
                     this.$router.push('NuevaCategoria')
                 }
+                
                
             }
         }

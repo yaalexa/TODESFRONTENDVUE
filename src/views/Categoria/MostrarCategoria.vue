@@ -1,6 +1,5 @@
 <template>
-
-<div>
+    <div>
     <h1>Mostar categorias</h1>
 
     
@@ -8,22 +7,24 @@
       <b-table sticky-header striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
 
            
-            <template v-slot:cell(editar)="data">
+      
 
                 <b-button variant="primary" size="sm" @click="editar(data.id)">Editar</b-button>
               
-            </template>
-
 
             <template v-slot:cell(eliminar)="data">
-                <b-button variant="danger" size="sm" @click="eliminar(data.id)">Eliminar</b-button>
+                <button @click="EliminarCategoria(id)" class="btn btn-danger"></button>
+                <b-button @click="EliminarCategoria(data.item.id)">Eliminar</b-button>
+
             </template>
+
+
+           
 
            
         </b-table>
   
 </div>
-
 </template>
 
 <script>
@@ -52,7 +53,7 @@ import axios from "axios"
     },
     mounted() {
         this.getcategorias()
-        this.EliminarCategoria()
+        this.EliminarCategoria(id)
 
     },
 
@@ -68,8 +69,8 @@ import axios from "axios"
             this.$router.push('NuevaCategoria')
         },
 
-        EliminarCategoria() {
-            this.axios.delete("http://127.0.0.1:8000/api/categoria/{id}", this.form).then((data) => {
+        EliminarCategoria(id) {
+            this.axios.delete("http://127.0.0.1:8000/api/categoria/"+id, this.form).then((data) => {
                 console.log(data);
             });
         }
