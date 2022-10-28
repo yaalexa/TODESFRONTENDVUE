@@ -8,6 +8,7 @@ import Dashboard from '../views/Admin/Dashboard.vue'
 import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
 import Categoria from '../views/Categoria/Categoria.vue'
+import pruebamodal from '../components/pruebamodal.vue'
 
 import Publicacionevento from '../views/Publicacionevento/Publicacionevento.vue'
 import Nuevapublicacionevento from '../views/Publicacionevento/Nuevapublicacionevento'
@@ -155,7 +156,12 @@ const routes = [
         path: '/AgregarUsuario"',
         name: '/AgregarUsuario"',
         component: AgregarUsuario
-    }
+    },
+    {
+      path: '/pruebamodal',
+      name: '/pruebamodal',
+      component: pruebamodal
+  },
 ]
 
 const router = new VueRouter({

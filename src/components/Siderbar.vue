@@ -37,6 +37,10 @@
                     <router-link to="/ListarUsuarios">Usuarios</router-link>
                     <a></a> 
                 </li>
+                <li>
+                    <router-link to="/pruebamodal">modelasdasd</router-link>
+                    <a></a> 
+                </li>
 
                 <li>
                      <a>Roles</a>

@@ -11,7 +11,7 @@
     <b-label for="">Descripcion</b-label>
     <b-input type="text" v-model="form.descripcion"/><br>
 
-    <b-button variant="primary" @click="GuardarCategoria()">REGISTRAR</b-button>
+    <b-button c variant="primary" @click="GuardarCategoria()">REGISTRAR</b-button>
 
     
 
@@ -23,12 +23,14 @@
 <script>
 import axios from "axios"
 export default {
+    
     name:"NuevaCategoria",
     data(){
         return{
             form:{
                 nombre:"",   // aqui se inicializa lo que  hace la conexion   de html con js
                 descripcion:"",
+                
             }
           
         }
