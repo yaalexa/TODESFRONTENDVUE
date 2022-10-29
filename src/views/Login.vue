@@ -14,7 +14,7 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form>
+                <form  >
 
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i class="fas fa-cubes fa-2x me-3 " style="color: #ff6219;"></i>
@@ -24,21 +24,21 @@
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Iniciar sesión en su cuenta</h5>
 
                   <div class="form-outline mb-4">
-                    <input type="email" id="form2Example17" class="form-control form-control-lg" v-model="user.email" />
+                    <input type="email" id="form2Example17" class="form-control form-control-lg" v-model="form.email" />
                     <label class="form-label" for="form2Example17" >Email</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="form2Example27" class="form-control form-control-lg" v-model="user.password" />
+                    <input type="password" id="form2Example27" class="form-control form-control-lg"  v-model="form.password" />
                     <label class="form-label" for="form2Example27">Password</label>
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <button @click="logueo()" class="btn btn-success btn-lg btn-block" type="button">Login</button>
+                    <button @click="Iniciar()" class="btn btn-success btn-lg btn-block" type="button">Login</button>
                   </div>
 
                   <a class="small text-muted" href="#!">¿Se te olvidó tu contraseña?</a>
-                  <p class="mb-5 pb-lg-2" style="color: #393f81;">¿No tienes una cuenta? <a href="#!"
+                  <p class="mb-5 pb-lg-2" style="color: #393f81;">¿No tienes una cuenta? <a href="Registrar"
                       style="color: #393f81;">
                         Registrarse aquí</a></p>
                  
@@ -58,36 +58,36 @@
 
 </template>
 
-
 <script>
-
-
 import axios from "axios"
-      export default{
-      name:'login',
-      data(){
+export default {
+    name:"Login",
+    data(){
         return{
-          user:{
-            email:null,
-            password:null,
-          }
-        }
-      },
-      components:{},
-      methods:{
-         logueo()
-         {
-            this.axios.post('/ruta' ,this.user).then(data=>{
-              console.log(data)
-                    this.$router.push('/Dashboard')  
-            })
-         }
-      },
-      computed:{},
-      mounted:{}
-      } 
+            form:{
+               email:"",   
+               password:"",
+            }
           
+        }
+    },
+    methods:{
+      
+      Iniciar(){
+         this.axios.post("http://127.0.0.1:8000/api/login",this.form).then((data)=>
+         {console.log(data.data.status);
+        if(data.data.status=="1"){
+          this.$router.push("/dashboard");
+        }
+        if(data.data.status=="0"){
+          this.$router.push("/Registrar");
+        }
+        });
+      }
+    }
+}
 </script>
+
 
 
 <style>
