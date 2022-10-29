@@ -51,6 +51,7 @@ export default {
                 { key: "responsable", label: 'Responsable' },
                 { key: "fecha_caducidad", label: 'fecha_caducidad' },
                 { key: "tipo", label: 'Tipo' },
+                
                 { key: "insertar", label: "Insertar" },
 
                 { key: "editar", label: "Editar" },
