@@ -117,10 +117,10 @@
                       placeholder="url"
                       class="form-control"
                     />
-                    <br>
+                    <br />
                     <input name="subir" type="submit" value="Subir" />
                   </form>
-                  <br>
+                  <br />
                   <input
                     id="fname"
                     name="name"
@@ -132,7 +132,7 @@
                   <br />
                 </div>
               </div>
-              <br><br>
+              <br /><br />
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"
                   ><i class="fa fa-user bigicon"></i
@@ -148,7 +148,7 @@
                   />
                 </div>
               </div>
-              <br>
+              <br />
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"
                   ><i class="fa fa-user bigicon"></i
@@ -164,7 +164,8 @@
                   />
                 </div>
               </div>
-              <br><br>  <br>
+              <br /><br />
+              <br />
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"
                   ><i class="fa fa-user bigicon"></i
@@ -179,9 +180,8 @@
                     v-model="form.tipo"
                   />
                 </div>
-              
               </div>
-              <br><br>
+              <br /><br />
               <b-button @click="GuardarPublicacion()">REGISTRAR</b-button>
             </fieldset>
           </form>
@@ -192,6 +192,7 @@
 </template>
 <script>
 import axios from "axios";
+import Swal from "sweetalert2";
 export default {
   name: "Nuevapublicacionevento",
   data() {
@@ -211,8 +212,17 @@ export default {
   },
   methods: {
     GuardarPublicacion() {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Publicacion  o evento guardado",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       this.axios
+
         .post("http://127.0.0.1:8000/api/publicacion", this.form)
+
         .then((data) => {
           console.log(data);
         });
