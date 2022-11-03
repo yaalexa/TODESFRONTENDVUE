@@ -16,7 +16,7 @@
         >
       </template>
 
-      <template v-slot:cell(editar)="data">
+      <template v-slot:cell(editar)="insertar">
         <div>
           <b-button
             variant="primary"
