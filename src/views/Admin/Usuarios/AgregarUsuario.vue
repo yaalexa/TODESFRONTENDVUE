@@ -51,9 +51,9 @@
         },
         methods:{
           GuardarUsuario(){
-            
              this.axios.post("http://127.0.0.1:8000/api/usuario",this.form).then((data)=>
              {console.log(data);
+                //CODIGO DE ALERTA
                 Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -62,7 +62,6 @@
                 timer: 1500
                 })
             });
-      
           }
         }
     }

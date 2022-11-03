@@ -22,34 +22,34 @@ const routes = [
 
 
 
-  {
-    path: '/Publicacionevento',
-    name: 'Publicacionevento',
-    component: Publicacionevento
-  },
+    {
+        path: '/Publicacionevento',
+        name: 'Publicacionevento',
+        component: Publicacionevento
+    },
 
-  {
-    path: '/Nuevapublicacionevento',
-    name: 'Nuevapublicacionevento',
-    component: Nuevapublicacionevento
-  },
+    {
+        path: '/Nuevapublicacionevento',
+        name: 'Nuevapublicacionevento',
+        component: Nuevapublicacionevento
+    },
 
-  {
-    path: '/Dashboard',
-    name: 'Dashboard',
-    component: Dashboard
-  },
-  
-  {
-    path: '/Vereventos',
-    name: 'Vereventos',
-    component: Vereventos
-  },
-  {
-    path: '/Mostrarcategorias"',
-    name: '/Mostrarcategorias"',
-    component: Mostrarcategorias
-  },
+    {
+        path: '/Dashboard',
+        name: 'Dashboard',
+        component: Dashboard
+    },
+
+    {
+        path: '/Vereventos',
+        name: 'Vereventos',
+        component: Vereventos
+    },
+    {
+        path: '/Mostrarcategorias"',
+        name: '/Mostrarcategorias"',
+        component: Mostrarcategorias
+    },
 
     {
         path: '/',
@@ -77,14 +77,14 @@ const routes = [
         component: Vereventos
     },
     {
-        path: '/Mostrarcategorias"',
-        name: '/Mostrarcategorias"',
+        path: '/Mostrarcategorias',
+        name: '/Mostrarcategorias',
         component: Mostrarcategorias
     },
 
     {
-        path: '/AgregarUsuario"',
-        name: '/AgregarUsuario"',
+        path: '/AgregarUsuario',
+        name: '/AgregarUsuario',
         component: AgregarUsuario
     },
 
@@ -127,7 +127,7 @@ const routes = [
         component: ListarUsuarios
     },
 
-    
+
     {
         path: '/AgregarUsuario',
         name: '/AgregarUsuario',
