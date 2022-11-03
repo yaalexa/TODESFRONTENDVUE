@@ -17,9 +17,14 @@
       </template>
 
       <template v-slot:cell(editar)="data">
-        <b-button variant="primary" size="sm" @click="editarpublicacion(data.item.id)"
-          >Editar</b-button
-        >
+        <div>
+          <b-button
+            variant="primary"
+            size="sm"
+            @click="insertar(edicionpublicacion())"
+            >Editar</b-button
+          >
+        </div>
       </template>
 
       <template v-slot:cell(eliminar)="data">
@@ -37,6 +42,7 @@
 <script>
 import axios from "axios";
 import Swal from "sweetalert2";
+
 //import { response } from "express";
 // el axios permite  llamar  todas las  apis  que se hayan creado
 export default {
@@ -44,6 +50,8 @@ export default {
 
   data() {
     return {
+      
+      
       categoria: [],
       encabezado: [
         { key: "id", label: "Id" },
@@ -69,7 +77,7 @@ export default {
   mounted() {
     this.getcategorias();
     this.EliminarPublicacion(id);
-    this. editarpublicacion(id);
+    this.editarpublicacion(id);
   },
 
   methods: {
@@ -84,6 +92,11 @@ export default {
     NuevaCategoria() {
       this.$router.push("Nuevapublicacionevento");
     },
+
+    edicionpublicacion() {
+      this.$router.push("editarPublicacion");
+    },
+
 
     EliminarPublicacion(id) {
       const swalWithBootstrapButtons = Swal.mixin({
@@ -103,9 +116,25 @@ export default {
           confirmButtonText: "Si Borrarlo!",
           cancelButtonText: "No, cancelar!",
           reverseButtons: true,
+
+          
         })
         .then((result) => {
           if (result.isConfirmed) {
+            
+            this.axios
+        .delete("http://127.0.0.1:8000/api/publicacion/" + id)
+        .then((response) => {
+          this.publicacion = response.data;
+          console.log(data);
+
+          this.axios.get("http://127.0.0.1:8000/api/publicacion")
+        .then((response) => {
+          this.categoria = response.data;
+        });
+        });
+
+        
             swalWithBootstrapButtons.fire(
               "¡Eliminado!",
               "Su archivo ha sido eliminado.",
@@ -122,17 +151,10 @@ export default {
             );
           }
         });
-      this.axios
-        .delete("http://127.0.0.1:8000/api/publicacion/" + id)
-        .then((response) => {
-          this.publicacion = response.data;
-          console.log(data);
-          window.location.href = "/Publicacionevento";
-        });
+     
     },
 
-    editarpublicacion(id)
-    {
+    editarpublicacion(id) {
       const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
           confirmButton: "btn btn-success",
@@ -141,14 +163,44 @@ export default {
         buttonsStyling: false,
       });
       this.axios
-        .put("http://127.0.0.1:8000/api/publicacion/"+id)
+        .put("http://127.0.0.1:8000/api/publicacion/" + id)
         .then((response) => {
           this.publicacion = response.data;
           console.log(data);
           window.location.href = "/Publicacionevento";
         });
+    },
 
-    }
+    checkFormValidity() {
+      const valid = this.$refs.form.checkValidity();
+      this.nameState = valid;
+      return valid;
+    },
+
+    resetModal() {
+      this.name = "";
+      this.nameState = null;
+    },
+
+    handleOk(bvModalEvent) {
+      // Prevent modal from closing
+      bvModalEvent.preventDefault();
+      // Trigger submit handler
+      this.handleSubmit();
+    },
+
+    handleSubmit() {
+      // Exit when the form isn't valid
+      if (!this.checkFormValidity()) {
+        return;
+      }
+      // Push the name to submitted names
+      this.submittedNames.push(this.name);
+      // Hide the modal manually
+      this.$nextTick(() => {
+        this.$bvModal.hide("modal-prevent-closing");
+      });
+    },
   },
 };
 </script>

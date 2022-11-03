@@ -14,7 +14,7 @@ import Nuevapublicacionevento from '../views/Publicacionevento/Nuevapublicacione
 import ListarUsuarios from '../views/Admin/Usuarios/ListarUsuarios'
 import AgregarUsuario from '../views/Admin/Usuarios/AgregarUsuario.vue'
 import CrearUsuario from '../views/Admin/Usuarios/CrearUsuario.vue'
-
+import editarPublicacion from '../views/Publicacionevento/editarPublicacion'
 
 Vue.use(VueRouter)
 
@@ -44,6 +44,12 @@ const routes = [
     path: '/Vereventos',
     name: 'Vereventos',
     component: Vereventos
+  },
+
+  {
+    path: '/editarPublicacion',
+    name: 'editarPublicacion',
+    component: editarPublicacion
   },
   {
     path: '/Mostrarcategorias"',

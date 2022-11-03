@@ -7,8 +7,8 @@
        <nav id="siderbar">
           <div class="siderbar-header">
           
-            <b-img class="icon" :src="require('@/assets/lgtb.png')" fluid></b-img>
-          
+           <!-- <b-img class="icon" :src="require('@/assets/lgtb.png')" fluid></b-img>
+           -->
          </div>
  
             <ul>
