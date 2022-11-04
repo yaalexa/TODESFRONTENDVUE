@@ -15,18 +15,18 @@
             </ul>
         </div>
         <b-modal id="modal-prevent-closing" ref="modal" title="Nueva Categoria" @show="resetModal" @hidden="resetModal"
-            @ok="handleOk">
+            @GuardarCategoria="handleOk">
             <form ref="form" @submit.stop.prevent="handleSubmit">
                 <b-form-group label="Categoria" label-for="name-input" invalid-feedback="Name is required"
                     :state="nameState">
 
-                    <b-form-input id="name-input" v-model="name" :state="nameState" required></b-form-input>
+                    <b-form-input id="name-input" v-model="cate.nombre" :state="nameState" required></b-form-input>
                 </b-form-group>
 
                 <b-form-group label="Descripcion Categoria" label-for="Descripcion-input"
                     invalid-feedback="Name is required" :state="nameState">
 
-                    <b-form-input id="Descripcion-input" v-model="name" :state="nameState" required></b-form-input>
+                    <b-form-input id="Descripcion-input" v-model="cate.descripcion" :state="nameState" required></b-form-input>
                 </b-form-group>
             </form>
         </b-modal>
@@ -65,6 +65,11 @@ export default {
     name: "Mostrarcategorias",
     data() {
         return {
+            cate:{
+                nombre:"",   // aqui se inicializa lo que  hace la conexion   de html con js
+                descripcion:"",
+                
+            },
             categoria: [],
             encabezado: [
                 { key: "id", label: "Id" },
@@ -77,6 +82,7 @@ export default {
 
             ],
             name: '',
+            cat:'',
             nameState: null,
             submittedNames: [],
 
@@ -100,6 +106,14 @@ export default {
                 this.categoria = response.data;
             })
         },
+        GuardarCategoria(){
+         this.axios.post("http://127.0.0.1:8000/api/categoria",this.cate).then((data)=>
+         {console.log(data);
+            
+            this.$router.push('/Categoria');
+        });
+      },
+    
 
         NuevaCategoria() {
             this.$router.push('NuevaCategoria')
