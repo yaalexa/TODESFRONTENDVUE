@@ -15,6 +15,8 @@ import ListarUsuarios from '../views/Admin/Usuarios/ListarUsuarios'
 import AgregarUsuario from '../views/Admin/Usuarios/AgregarUsuario.vue'
 import CrearUsuario from '../views/Admin/Usuarios/CrearUsuario.vue'
 
+import editarpublicacion from '../views/Publicacionevento/editarpublicacion'
+
 
 Vue.use(VueRouter)
 
@@ -120,7 +122,11 @@ const routes = [
         name: 'NuevaCategoria',
         component: NuevaCategoria
     },
-
+    {
+        path: '/editarpublicacion/:id',
+        name: 'editarpublicacion',
+        component: editarpublicacion
+    },
     {
         path: '/ListarUsuarios',
         name: 'ListarUsuarios',
