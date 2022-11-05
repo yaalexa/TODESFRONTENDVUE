@@ -1,9 +1,9 @@
 <template>
 
     <div>
-        <h1>Mostrar categorias</h1>
+        <h1>Categorias</h1>
         <b-button @click="NuevaCategoria()">Nueva Categoria</b-button>
-        <b-button @click="EliminarCategoria()">Eliminar</b-button>
+        <b-button @click="DetalleCategoria()">Detalle Categoria</b-button>
 
 
         <b-table :fields="encabezado" :items="categoria">
@@ -23,6 +23,7 @@
 
 
 import axios from "axios"
+import DetalleCategoria from "./DetalleCategoria.vue"
 //import { response } from "express";
 // el axios permite  llamar  todas las  apis  que se hayan creado
 export default {
@@ -61,8 +62,8 @@ export default {
             this.$router.push('NuevaCategoria')
         },
 
-        EliminarCategoria(id) {
-            this.axios.delete("http://127.0.0.1:8000/api/categoria/"+id, this.form).then((data) => {
+        DetalleCategoria(id) {
+            this.axios.delete("http://127.0.0.1:8000/api/DetalleCategoria/"+id, this.form).then((data) => {
                 console.log(data);
             });
         }
