@@ -13,7 +13,7 @@ import Nuevapublicacionevento from '../views/Publicacionevento/Nuevapublicacione
 
 import ListarUsuarios from '../views/Admin/Usuarios/ListarUsuarios'
 import AgregarUsuario from '../views/Admin/Usuarios/AgregarUsuario.vue'
-import CrearUsuario from '../views/Admin/Usuarios/CrearUsuario.vue'
+import EditarUsuario from '../views/Admin/Usuarios/EditarUsuario.vue'
 
 
 Vue.use(VueRouter)
@@ -46,8 +46,8 @@ const routes = [
         component: Vereventos
     },
     {
-        path: '/Mostrarcategorias"',
-        name: '/Mostrarcategorias"',
+        path: '/Mostrarcategorias',
+        name: '/Mostrarcategorias',
         component: Mostrarcategorias
     },
 
@@ -95,9 +95,9 @@ const routes = [
     },
 
     {
-        path: '/CrearUsuario',
-        name: 'CrearUsuario',
-        component: CrearUsuario
+        path: '/EditarUsuario',
+        name: 'EditarUsuario',
+        component: EditarUsuario
     },
 
 
@@ -129,8 +129,8 @@ const routes = [
 
 
     {
-        path: '/AgregarUsuario"',
-        name: '/AgregarUsuario"',
+        path: '/AgregarUsuario',
+        name: '/AgregarUsuario',
         component: AgregarUsuario
     }
 
