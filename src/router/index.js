@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import Mostrarcategorias from '../views/Categoria/Mostrar.vue'
+import Mostrarcategorias from '../views/Categoria/MostrarCategoria.vue'
 import NuevaCategoria from '../views/Categoria/NuevaCategoria.vue'
 import Login from '../views/Login.vue'
 import Dashboard from '../views/Admin/Dashboard.vue'
 import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
+import Categoria from '../views/Categoria/Categoria.vue'
+import pruebamodal from '../components/pruebamodal.vue'
 
 import Publicacionevento from '../views/Publicacionevento/Publicacionevento.vue'
 import Nuevapublicacionevento from '../views/Publicacionevento/Nuevapublicacionevento'
@@ -46,9 +48,33 @@ const routes = [
     component: Vereventos
   },
   {
-    path: '/Mostrarcategorias"',
-    name: '/Mostrarcategorias"',
+    path: '/Mostrarcategorias',
+    name: '/Mostrarcategorias',
     component: Mostrarcategorias
+  },
+  {
+    path: '/Categoria',
+    name: '/Categoria',
+    component: Categoria
+   
+  },
+  {
+    path: '/about',
+    name: 'about',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  },
+  {
+    path:'/Mostrarcategorias',
+    name:'Mostrarcategorias',
+    component:Mostrarcategorias
+  },
+  {
+    path:'/NuevaCategoria',
+    name:'NuevaCategoria',
+    component:NuevaCategoria
   },
 
     {
@@ -125,16 +151,17 @@ const routes = [
         path: '/ListarUsuarios',
         name: 'ListarUsuarios',
         component: ListarUsuarios
-    },
-
-    
+    },    
     {
         path: '/AgregarUsuario"',
         name: '/AgregarUsuario"',
         component: AgregarUsuario
-    }
-
-
+    },
+    {
+      path: '/pruebamodal',
+      name: '/pruebamodal',
+      component: pruebamodal
+  },
 ]
 
 const router = new VueRouter({
