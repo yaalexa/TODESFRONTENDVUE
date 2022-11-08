@@ -16,7 +16,7 @@ import AgregarUsuario from '../views/Admin/Usuarios/AgregarUsuario.vue'
 import CrearUsuario from '../views/Admin/Usuarios/CrearUsuario.vue'
 
 import editarpublicacion from '../views/Publicacionevento/editarpublicacion'
-
+import creararchivo from '../views/Archivo/creararchivo'
 
 Vue.use(VueRouter)
 
@@ -46,6 +46,12 @@ const routes = [
     path: '/Vereventos',
     name: 'Vereventos',
     component: Vereventos
+  },
+
+  {
+    path: '/creararchivo',
+    name: 'creararchivo',
+    component: creararchivo
   },
   {
     path: '/Mostrarcategorias"',
