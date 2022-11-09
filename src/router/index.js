@@ -16,7 +16,7 @@ import Nuevapublicacionevento from '../views/Publicacionevento/Nuevapublicacione
 import ListarUsuarios from '../views/Admin/Usuarios/ListarUsuarios'
 import AgregarUsuario from '../views/Admin/Usuarios/AgregarUsuario.vue'
 import CrearUsuario from '../views/Admin/Usuarios/CrearUsuario.vue'
-
+//import CrearUsuario from '../views/Admin/Usuarios/CrearUsuario.vue'
 
 Vue.use(VueRouter)
 
@@ -162,6 +162,11 @@ const routes = [
       name: '/pruebamodal',
       component: pruebamodal
   },
+  //{
+    //path: '/comments/edit/id',
+   // name: 'comments.edit',
+   // component: CommentsEdit,
+ // },
 ]
 
 const router = new VueRouter({
