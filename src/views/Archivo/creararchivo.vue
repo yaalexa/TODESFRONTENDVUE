@@ -1,50 +1,81 @@
 <template>
-  <div>
-    <h1>ARCHIVOS</h1>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-      </head>
-      <body>
-        <!--- <form action="{{route('archivoevento')}}" method="POST">-->
-        <form action="">
-          <input type="text" name="file" id="" /><br /><br />
-          <select v-model="selected">
-            <option disabled value="">Seleccione publicaciones o eventos</option>
-            <option>A</option>
-            <option>B</option>
-            <option>C</option>
-          </select><br><br>
-          <b-button @click="GuardarPublicacion()">REGISTRAR</b-button>
+  <div class="container my-5">
+    <b-row>
+      <b-col>
+        <h1>Formularios</h1>
+        <form>
+          <b-row>
+            <b-col md="3">
+              <b-form-input
+                type="texto"
+                v-model="texto"
+                :state="validarTexto"
+              ></b-form-input>
+            </b-col>
+            <b-col md="3">
+              <b-form-select v-model="seleccionada" :options="animales">
+              </b-form-select>
+            </b-col>
+          </b-row>
         </form>
-      </body>
-    </html>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
 <script>
-    import axios from "axios"
-    export default {
-        name:"AgregarArchivo",
-        data(){
-            return{
-                form:{
-                    ruta:"",
-                    publicacion:"",
-                  
-                }
-              
-            }
+export default {
+  name: "Formularios",
+  data() {
+    return {
+      texto: "",
+      seleccionada: null,
+      radioSeleccion: null,
+      check: [],
+      radOpciones: [
+        {
+          value: 1,
+          text: "Perro",
         },
-        methods:{
-          GuardarArchivo(){
-             this.axios.post("http://127.0.0.1:8000/api/archivoevento",this.form).then((data)=>
-             {console.log(data);
-            });
-          }
-        }
-    }
-    </script>
+        {
+          value: 2,
+          text: "Gato",
+        },
+        {
+          value: 2,
+          text: "Pato",
+        },
+      ],
+      animales: [
+        {
+          value: null,
+          text: "Seleccione un animal",
+        },
+        {
+          value: 1,
+          text: "Perro",
+        },
+        {
+          value: 2,
+          text: "Gato",
+        },
+        {
+          value: 2,
+          text: "Pato",
+        },
+      ],
+    };
+  },
+  computed: {
+    validarTexto() {
+      if (this.texto.length < 3 && this.texto.length > 0) {
+        return false;
+      } else if (this.texto.length == 0) {
+        return null;
+      } else {
+        return true;
+      }
+    },
+  },
+};
+</script>
