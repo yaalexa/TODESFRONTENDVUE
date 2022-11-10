@@ -9,7 +9,7 @@ import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
 import Categoria from '../views/Categoria/Categoria.vue'
 import pruebamodal from '../components/pruebamodal.vue'
-
+import editarcategoria from '../views/Categoria/editarcategoria'
 import Publicacionevento from '../views/Publicacionevento/Publicacionevento.vue'
 import Nuevapublicacionevento from '../views/Publicacionevento/Nuevapublicacionevento'
 
@@ -162,11 +162,11 @@ const routes = [
       name: '/pruebamodal',
       component: pruebamodal
   },
-  //{
-    //path: '/comments/edit/id',
-   // name: 'comments.edit',
-   // component: CommentsEdit,
- // },
+  {
+    path: '/editarcategoria/:id',
+    name: 'editarcategoria',
+    component: editarcategoria
+},
 ]
 
 const router = new VueRouter({
