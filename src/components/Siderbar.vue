@@ -23,6 +23,7 @@
                      
                      <b-dropdown-item href="/VerEventos">Ver Eventos</b-dropdown-item>
                      <b-dropdown-item href="/Categoria">Categorias</b-dropdown-item>
+                     <b-dropdown-item href="/detallecategoria">detallecategoria</b-dropdown-item>
           <b-dropdown-item href="#">Sign Out</b-dropdown-item>
                   </li>
                 <li>

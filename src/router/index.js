@@ -12,6 +12,7 @@ import pruebamodal from '../components/pruebamodal.vue'
 import editarcategoria from '../views/Categoria/editarcategoria'
 import Publicacionevento from '../views/Publicacionevento/Publicacionevento.vue'
 import Nuevapublicacionevento from '../views/Publicacionevento/Nuevapublicacionevento'
+import detallecategoria from '../views/Categoria/detallecategoria.vue'
 
 import ListarUsuarios from '../views/Admin/Usuarios/ListarUsuarios'
 import AgregarUsuario from '../views/Admin/Usuarios/AgregarUsuario.vue'
@@ -72,10 +73,16 @@ const routes = [
     component:Mostrarcategorias
   },
   {
+    path:'/detallecategoria',
+    name:'detallecategoria',
+    component:detallecategoria
+  },
+  {
     path:'/NuevaCategoria',
     name:'NuevaCategoria',
     component:NuevaCategoria
   },
+
 
     {
         path: '/',
