@@ -1,72 +1,107 @@
 <template>
 
     <div>
-        <h1>Categoria</h1>
+        <h1>Detalle Categoria</h1>
+
+
+        <b-button variant="warning" @click="Publicacionevento()">Publicaciones</b-button>
+        <b-button variant="primary" @click="Categoria()">Categorias</b-button>
+
+        <div class="mt-3">
+            <div v-if="submittedNames.length === 0"></div>
+            <ul v-else class="mb-0 pl-3">
+                <li v-for="name in submittedNames">{{ name }}</li>
+            </ul>
+        </div>
+
+        <b-table :fields="encabezado" :items="DetalleCategoria">
+
+           <template v-slot:cell(editar)="data">
+
+                <b-button variant="primary" size="sm" @click="editarDetallaCategoria(data.id)">Editar</b-button>
+
+            </template>
+        </b-table>
+
+
+    </div>
+</template>
     
+<script>
+
+
+
+import axios from "axios"
+//import { response } from "express";
+// el axios permite  llamar  todas las  apis  que se hayan creado
+export default {
+    name: "Detallecategoria",
+    data() {
+        return {
+            cate:{
+                nombre:"",   // aqui se inicializa lo que  hace la conexion   de html con js
+                descripcion:"",
+                
+            },
+            Detallecategoria: [],
+            encabezado: [
+                { key: "id", label: "Id" },
+                { key: "prioridad", label: "Prioridad" },
+                { key: "id_publicacion", label: "Publicacion" },
+                { key: "id_categoria", label: "Categoria" },
+                { key: "editar", label: "Editar" },
+
+
+            ],
+            name: '',
+            cat:'',
+            nameState: null,
+            submittedNames: [],
+
+        }
+
+
+    },
+    components: {
+
+    },
+    mounted() {
+        this.getconsultamuchos()
+
+    },
+
+    methods: {
+
+        getconsultamuchos() {
+            this.axios.get("http://127.0.0.1:8000/api/consultamuchos").then((response) => {
+                this.consultamuchos = response.data;
+            })
+        },
+        Guardarconsultamuchos(){
+         this.axios.post("http://127.0.0.1:8000/api/consultamuchos",this.cate).then((data)=>
+         {console.log(data);
+            
+            this.$router.push('/consultamuchos');
+        });
+      },
+    
+
+      Publicacionevento() {
+            this.$router.push('Publicacionevento')
+        },
+        Categoria() {
+            this.$router.push('Categoria')
+       
+            },
+        }
+    }
         
-        <b-button  variant="warning" @click="NuevaCategoria()">Nueva Categoria</b-button>
-          <b-table sticky-header striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
-    
-               
-                <template v-slot:cell(editar)="data">
-    
-                    <b-button variant="primary" size="sm" @click="editar(data.id)">Editar</b-button>
-                  
-                </template>
-    
-    
-                <template v-slot:cell(guardar)="data">
-                    <b-button size="sm" @click="guardar(data.id)">Guardar</b-button>
-                </template>
 
     
-            </b-table>
-      
-    </div>
-    </template>
-    
-    <script>
-    
-    import axios from "axios"
-    //import { response } from "express";
-    // el axios permite  llamar  todas las  apis  que se hayan creado
-        export default {
-            name:"Mostrarcategorias",
-            data(){
-              return {
-                categoria:[],
-                encabezado:[
-            {key:"id",label:"Id"},
-            {key:"nombre",label:"Categoria"},
-            { key:"descripcion",label:"Descripcion"},
-            { key: "editar", label: "Editar" },
-            { key: "guardar", label: "Guardar" },
-              ]}},
-            components:{
-    
-            },
-            mounted(){
-                this.getcategorias()
-    
-                
-                
-    
-            },
-    
-            methods:{
-    
-                getcategorias(){
-                    this.axios.get("http://127.0.0.1:8000/api/categoria").then((response)=>
-                    {
-                       this.categoria=response.data;
-                    })
-                },
-    
-                NuevaCategoria(){
-                    this.$router.push('NuevaCategoria')
-                }
-                
-               
-            }
-        }
-    </script>
+
+
+</script>
+
+<style>
+
+</style>

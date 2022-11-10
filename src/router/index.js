@@ -9,9 +9,11 @@ import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
 import Categoria from '../views/Categoria/Categoria.vue'
 import pruebamodal from '../components/pruebamodal.vue'
+import DetalleCategoria from '../views/Categoria/DetalleCategoria.vue'
 
 import Publicacionevento from '../views/Publicacionevento/Publicacionevento.vue'
 import Nuevapublicacionevento from '../views/Publicacionevento/Nuevapublicacionevento'
+
 
 import ListarUsuarios from '../views/Admin/Usuarios/ListarUsuarios'
 import AgregarUsuario from '../views/Admin/Usuarios/AgregarUsuario.vue'
@@ -56,6 +58,12 @@ const routes = [
     path: '/Categoria',
     name: '/Categoria',
     component: Categoria
+   
+  },
+  {
+    path: '/DetalleCategoria',
+    name: '/DetalleCategoria',
+    component: DetalleCategoria
    
   },
   {

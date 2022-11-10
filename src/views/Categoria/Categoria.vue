@@ -2,11 +2,9 @@
 <template>
 
     <div>
-        <h1>Categoria</h1>
+        <h1>Categorias</h1>
 
-
-        <b-button variant="warning" @click="NuevaCategoria()">Nueva Categoria</b-button>
-        <b-button v-b-modal.modal-prevent-closing>Nueva Categoria</b-button>
+        <b-button v-b-modal.modal-prevent-closing variant="warning">Nueva Categoria</b-button>
 
         <div class="mt-3">
             <div v-if="submittedNames.length === 0"></div>
@@ -28,6 +26,7 @@
 
                     <b-form-input id="Descripcion-input" v-model="cate.descripcion" :state="nameState" required></b-form-input>
                 </b-form-group>
+                <b-button c variant="primary" @click="GuardarCategoria()">REGISTRAR</b-button>
             </form>
         </b-modal>
 
@@ -114,11 +113,6 @@ export default {
         });
       },
     
-
-        NuevaCategoria() {
-            this.$router.push('NuevaCategoria')
-        },
-
         EliminarCategoria(id) {
             this.axios.delete("http://127.0.0.1:8000/api/categoria/" + id, this.form).then((data) => {
                 console.log(data);
