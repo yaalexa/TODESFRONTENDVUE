@@ -30,13 +30,20 @@
                      <a></a>
                 </li>
                 <li>
-                     <router-link to="/MostrarNoticias">Noticias</router-link>
+                     <router-link to="/Publicacionevento">Publicaciones&Evento</router-link>
                      <a></a>
                 </li>
                 <li>
-                     
-                     <a>Usuario</a>
+                    <router-link to="/ListarUsuarios">Usuarios</router-link>
+                    <a></a> 
                 </li>
+
+                <li>
+                    <router-link to="/creararchivo">Archivos</router-link>
+                    <a></a> 
+                </li>
+
+
                 <li>
                      <a>Roles</a>
                 </li>
