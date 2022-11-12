@@ -39,7 +39,7 @@
 
             <template v-slot:cell(editar)="data">
 
-                <b-button variant="primary" size="sm" @click="editar(data.id)">Editar</b-button>
+                <b-button variant="primary" @click="EditarCategoria()">Editar</b-button>
 
             </template>
             <template v-slot:cell(asignar)="data">
@@ -58,6 +58,7 @@
 
 
 import axios from "axios"
+import EditarCategoria from "./EditarCategoria.vue"
 //import { response } from "express";
 // el axios permite  llamar  todas las  apis  que se hayan creado
 export default {
@@ -105,6 +106,9 @@ export default {
                 this.categoria = response.data;
             })
         },
+        EditarCategoria() {
+            this.$router.push('editarcategoria')
+        },
         GuardarCategoria(){
          this.axios.post("http://127.0.0.1:8000/api/categoria",this.cate).then((data)=>
          {console.log(data);
@@ -117,7 +121,9 @@ export default {
             this.axios.delete("http://127.0.0.1:8000/api/categoria/" + id, this.form).then((data) => {
                 console.log(data);
             });
+            
         },
+        
         checkFormValidity() {
             const valid = this.$refs.form.checkValidity()
             this.nameState = valid

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Mostrarcategorias from '../views/Categoria/MostrarCategoria.vue'
 import NuevaCategoria from '../views/Categoria/NuevaCategoria.vue'
+import EditarCategoria from '../views/Categoria/EditarCategoria.vue'
 import Login from '../views/Login.vue'
 import Dashboard from '../views/Admin/Dashboard.vue'
 import Vereventos from '../views/Admin/Eventos/Vereventos'
@@ -154,6 +155,12 @@ const routes = [
         name: 'NuevaCategoria',
         component: NuevaCategoria
     },
+    {
+      path: '/EditarCategoria',
+      name: 'EditarCategoria',
+      component: EditarCategoria
+  },
+
 
     {
         path: '/ListarUsuarios',

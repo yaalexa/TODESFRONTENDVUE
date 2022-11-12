@@ -1,0 +1,62 @@
+<template>
+    
+    <div>
+    
+    <div class="container py-5 h-100"></div>
+    <h1>Editar Categoria</h1>
+    <label for="">Nombre categoria</label>
+
+    <b-input class="mx-5" type="text" v-model="form.nombre"/><br><br>
+
+    <b-label for="">Descripcion</b-label>
+    <b-input type="text" v-model="form.descripcion"/><br>
+
+    <b-button c variant="primary" @click="GuardarCategoria()">Actualizar</b-button>
+
+    
+
+
+    <!--el v-model es para  hacer la conecion con  el html con el script-->
+</div>
+</template>
+
+<script>
+import axios from "axios"
+export default {
+    
+    name:"EditarCategoria",
+    data(){
+        return{
+            form:{
+                nombre:"",   // aqui se inicializa lo que  hace la conexion   de html con js
+                descripcion:"",
+                
+            }
+          
+        }
+    },
+    methods:{
+      GuardarCategoria(){
+         this.axios.post("http://127.0.0.1:8000/api/categoria",this.form).then((data)=>
+         {console.log(data);
+            
+            this.$router.push('/Categoria');
+        });
+      },
+      ModificarCategoria(){
+         this.axios.post("http://127.0.0.1:8000/api/categoria",this.form).then((data)=>
+         {console.log(data);
+            
+            this.$router.push('/Categoria');
+        });
+      },
+    
+    }
+}
+</script>
+
+<style>
+label{
+    height: 50px;
+}
+</style>
