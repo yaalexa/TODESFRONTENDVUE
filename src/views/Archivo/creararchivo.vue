@@ -1,81 +1,51 @@
 <template>
-  <div class="container my-5">
-    <b-row>
-      <b-col>
-        <h1>Formularios</h1>
-        <form>
-          <b-row>
-            <b-col md="3">
-              <b-form-input
-                type="texto"
-                v-model="texto"
-                :state="validarTexto"
-              ></b-form-input>
-            </b-col>
-            <b-col md="3">
-              <b-form-select v-model="seleccionada" :options="animales">
-              </b-form-select>
-            </b-col>
-          </b-row>
-        </form>
-      </b-col>
-    </b-row>
+  <div>
+
+    <div class="col-md-11">
+      <form
+                    action="Nuevapublicacionevento"
+                    method="POST"
+                    enctype="multipart/form-data"
+                  >
+                    <input
+                      id="archivo"
+                      name="archivo"
+                      type="file"
+                      accept="application/img"
+                      @change="imagenobtener"
+                      required
+                      placeholder="url"
+                      class="form-control"
+                    />
+                    <br>
+                    <input name="subir" type="submit" value="Subir" />
+                  </form>
+    </div>
+
+    <br><br>
+    <Input label="Text input" type="text" placeholder="url" /><br><br>
+
+    <b-form-select v-model="selected" :options="options"></b-form-select>
+ 
+    <div class="mt-3">Selected: <strong>{{ selected }}</strong></div>
   </div>
+
+
 </template>
 
 <script>
-export default {
-  name: "Formularios",
-  data() {
-    return {
-      texto: "",
-      seleccionada: null,
-      radioSeleccion: null,
-      check: [],
-      radOpciones: [
-        {
-          value: 1,
-          text: "Perro",
-        },
-        {
-          value: 2,
-          text: "Gato",
-        },
-        {
-          value: 2,
-          text: "Pato",
-        },
-      ],
-      animales: [
-        {
-          value: null,
-          text: "Seleccione un animal",
-        },
-        {
-          value: 1,
-          text: "Perro",
-        },
-        {
-          value: 2,
-          text: "Gato",
-        },
-        {
-          value: 2,
-          text: "Pato",
-        },
-      ],
-    };
-  },
-  computed: {
-    validarTexto() {
-      if (this.texto.length < 3 && this.texto.length > 0) {
-        return false;
-      } else if (this.texto.length == 0) {
-        return null;
-      } else {
-        return true;
+  export default {
+    data() {
+      return {
+        selected: null,
+        options: [
+          { value: null, text: 'Please select an option' },
+          { value: 'a', text: 'This is First option' },
+          { value: 'b', text: 'Selected Option' },
+          { value: { C: '3PO' }, text: 'This is an option with object value' },
+          { value: 'd', text: 'This one is disabled', disabled: true }
+        ]
       }
-    },
-  },
-};
+    }
+  }
 </script>
