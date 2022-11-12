@@ -156,7 +156,7 @@ const routes = [
         component: NuevaCategoria
     },
     {
-      path: '/EditarCategoria',
+      path: '/EditarCategoria/:id',
       name: 'EditarCategoria',
       component: EditarCategoria
   },

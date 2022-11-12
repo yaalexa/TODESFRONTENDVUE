@@ -1,61 +1,26 @@
-
 <template>
 
     <div>
-        <h1>Categorias</h1>
+        <h1 class="text-center">Categorias</h1>
 
-        <b-button v-b-modal.modal-prevent-closing variant="warning">Nueva Categoria</b-button>
+        
 
-        <div class="mt-3">
-            <div v-if="submittedNames.length === 0"></div>
-            <ul v-else class="mb-0 pl-3">
-                <li v-for="name in submittedNames">{{ name }}</li>
-            </ul>
-        </div>
-        <b-modal id="modal-prevent-closing" ref="modal" title="Nueva Categoria" @show="resetModal" @hidden="resetModal"
-            @GuardarCategoria="handleOk">
-            <form ref="form" @submit.stop.prevent="handleSubmit">
-                <b-form-group label="Categoria" label-for="name-input" invalid-feedback="Name is required"
-                    :state="nameState">
 
-                    <b-form-input id="name-input" v-model="cate.nombre" :state="nameState" required></b-form-input>
-                </b-form-group>
+        <b-table striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
 
-                <b-form-group label="Descripcion Categoria" label-for="Descripcion-input"
-                    invalid-feedback="Name is required" :state="nameState">
-
-                    <b-form-input id="Descripcion-input" v-model="cate.descripcion" :state="nameState" required></b-form-input>
-                </b-form-group>
-                <b-button c variant="primary" @click="GuardarCategoria()">REGISTRAR</b-button>
-            </form>
-        </b-modal>
-
-        <b-table :fields="encabezado" :items="categoria">
-
-            <template v-slot:cell(eliminar)="data">
-
-                <b-button variant="danger" @click="EliminarCategoria(data.item.id)">Eliminar</b-button>
+            <template v-slot:cell(insertar)="row">
+                <b-button variant="danger" size="sm" @click="insertar(NuevaCategoria())">Nuevo</b-button>
+                <b-button variant="primary" size="sm" @click="editar(EditarCategoria(row.item.id))">Editar</b-button>
+                <b-button variant="danger" size="sm" @click="EliminarCategoria(row.item.id)">Eliminar</b-button>
             </template>
+            zx
 
-            <template v-slot:cell(editar)="data">
-
-                <b-button variant="primary" @click="EditarCategoria()">Editar</b-button>
-
-            </template>
-            <template v-slot:cell(asignar)="data">
-
-                <b-button @click="show - true" to="/pruebamodal" variant="secondary">asignar</b-button>
-
-            </template>
         </b-table>
 
 
     </div>
 </template>
-    
 <script>
-
-
 
 import axios from "axios"
 import EditarCategoria from "./EditarCategoria.vue"
@@ -65,30 +30,22 @@ export default {
     name: "Mostrarcategorias",
     data() {
         return {
-            cate:{
-                nombre:"",   // aqui se inicializa lo que  hace la conexion   de html con js
-                descripcion:"",
-                
-            },
+
             categoria: [],
             encabezado: [
                 { key: "id", label: "Id" },
                 { key: "nombre", label: "Nombre" },
                 { key: "descripcion", label: "Descripcion" },
-                { key: "editar", label: "Editar" },
-                { key: "eliminar", label: "Eliminar" },
-                { key: "asignar", label: "asignar" }
 
+                { key: "insertar", label: "Insertar" },
+
+                { key: "editar", label: "Editar" },
+
+                { key: "eliminar", label: "Eliminar" },
 
             ],
-            name: '',
-            cat:'',
-            nameState: null,
-            submittedNames: [],
 
         }
-
-
     },
     components: {
 
@@ -106,24 +63,32 @@ export default {
                 this.categoria = response.data;
             })
         },
-        EditarCategoria() {
-            this.$router.push('editarcategoria')
+
+        NuevaCategoria() {
+
+            this.$router.push(`NuevaCategoria`)
         },
-        GuardarCategoria(){
-         this.axios.post("http://127.0.0.1:8000/api/categoria",this.cate).then((data)=>
-         {console.log(data);
-            
-            this.$router.push('/Categoria');
-        });
-      },
-    
+
+        EditarCategoria(id) {
+
+            this.$router.push(`EditarCategoria/${id}`)
+        },
+
+        GuardarCategoria() {
+            this.axios.post("http://127.0.0.1:8000/api/categoria", this.cate).then((data) => {
+                console.log(data);
+
+                this.$router.push('/Categoria');
+            });
+        },
+
         EliminarCategoria(id) {
             this.axios.delete("http://127.0.0.1:8000/api/categoria/" + id, this.form).then((data) => {
                 console.log(data);
             });
-            
+
         },
-        
+
         checkFormValidity() {
             const valid = this.$refs.form.checkValidity()
             this.nameState = valid
