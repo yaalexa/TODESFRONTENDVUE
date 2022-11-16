@@ -104,7 +104,7 @@
   
                   <div class="col-md-11">
                     <form
-                      action="Nuevapublicacionevento"
+                      action="EditarUsuario"
                       method="POST"
                       enctype="multipart/form-data"
                     >
@@ -182,7 +182,7 @@
                 
                 </div>
                 <br><br>
-                <b-button @click="ActualizarPublicacion()">REGISTRAR</b-button>
+                <b-button @click="EditarUsuario()">REGISTRAR</b-button>
               </fieldset>
             </form>
           </div>
@@ -193,7 +193,7 @@
   <script>
   import axios from "axios";
   export default {
-    name: "Nuevapublicacionevento",
+    name: "EditarUsuario",
     data() {
       return {
         form: {
@@ -215,7 +215,7 @@
     methods: {
         mostrar(){
             this.axios
-          .get("http://127.0.0.1:8000/api/publicacion/"+this.$route.params.id)
+          .get("http://127.0.0.1:8000/api/usuario/"+this.$route.params.id)
           .then((data) => {
             this.form.nombre=data.data[0].nombre;
             this.form.descripcion=data.data[0].descripcion;
@@ -234,9 +234,9 @@
         
       ActualizarPublicacion() {
         this.axios
-          .put("http://127.0.0.1:8000/api/publicacion/"+this.$route.params.id,this.form )
+          .put("http://127.0.0.1:8000/api/usuario/"+this.$route.params.id,this.form )
           .then((data) => {
-            this.$router.push("/Publicacionevento")
+            this.$router.push("/UserController")
           });
       },
 
