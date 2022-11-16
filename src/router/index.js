@@ -15,10 +15,13 @@ import ListarUsuarios from '../views/Admin/Usuarios/ListarUsuarios'
 import AgregarUsuario from '../views/Admin/Usuarios/AgregarUsuario.vue'
 import EditarUsuario from '../views/Admin/Usuarios/EditarUsuario.vue'
 
+import editarpublicacion from '../views/Publicacionevento/editarpublicacion'
+import creararchivo from '../views/Archivo/creararchivo'
 
 Vue.use(VueRouter)
 
 const routes = [
+
 
 
 
@@ -50,6 +53,42 @@ const routes = [
         name: '/Mostrarcategorias',
         component: Mostrarcategorias
     },
+
+  {
+    path: '/Publicacionevento',
+    name: 'Publicacionevento',
+    component: Publicacionevento
+  },
+
+  {
+    path: '/Nuevapublicacionevento',
+    name: 'Nuevapublicacionevento',
+    component: Nuevapublicacionevento
+  },
+
+  {
+    path: '/Dashboard',
+    name: 'Dashboard',
+    component: Dashboard
+  },
+  
+  {
+    path: '/Vereventos',
+    name: 'Vereventos',
+    component: Vereventos
+  },
+
+  {
+    path: '/creararchivo',
+    name: 'creararchivo',
+    component: creararchivo
+  },
+  {
+    path: '/Mostrarcategorias"',
+    name: '/Mostrarcategorias"',
+    component: Mostrarcategorias
+  },
+
 
     {
         path: '/',
@@ -120,7 +159,11 @@ const routes = [
         name: 'NuevaCategoria',
         component: NuevaCategoria
     },
-
+    {
+        path: '/editarpublicacion/:id',
+        name: 'editarpublicacion',
+        component: editarpublicacion
+    },
     {
         path: '/ListarUsuarios',
         name: 'ListarUsuarios',
