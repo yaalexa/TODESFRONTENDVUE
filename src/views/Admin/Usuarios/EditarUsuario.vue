@@ -5,9 +5,29 @@
           <div class="well well-lg">
             <form class="form-horizontal" method="post">
               <fieldset>
-                <h1 class="text-center">Edicion de la  Publicacion</h1>
+                <h1 class="text-center">Actualizar Informacion del Usuario</h1>
                 <hr />
   
+                              
+              
+                <br /><br /><br />
+                <div class="form-group">
+                  <span class="col-md-1 col-md-offset-2 text-center"
+                    ><i class="fa fa-user bigicon"></i
+                  ></span>
+                  <div class="col-md-11">
+                    <input
+                      id="fname"
+                      name="name"
+                      type="text"
+                      placeholder="Documento"
+                      class="form-control"
+                      v-model="form.identificacion"
+                    />
+                  </div>
+                </div>
+
+                <br /><br /><br />
                 <div class="form-group">
                   <span class="col-md-1 col-md-offset-2 text-center"
                     ><i class="fa fa-user bigicon"></i
@@ -23,6 +43,7 @@
                     />
                   </div>
                 </div>
+
                 <br /><br /><br />
                 <div class="form-group">
                   <span class="col-md-1 col-md-offset-2 text-center"
@@ -33,105 +54,15 @@
                       id="fname"
                       name="name"
                       type="text"
-                      placeholder="Descripcion"
+                      placeholder="Apellidos"
                       class="form-control"
-                      v-model="form.descripcion"
+                      v-model="form.apellidos"
                     />
                   </div>
                 </div>
+               
                 <br /><br /><br />
-                <div class="form-group">
-                  <span class="col-md-1 col-md-offset-2 text-center"
-                    ><i class="fa fa-user bigicon"></i
-                  ></span>
-                  <div class="col-md-11">
-                    <input
-                      id="fname"
-                      name="name"
-                      type="datetime-local"
-                      placeholder="Descripcion"
-                      class="form-control"
-                      v-model="form.fecha_y_Hora"
-                    />
-                  </div>
-                </div>
-                <br /><br /><br />
-                <div class="form-group">
-                  <span class="col-md-1 col-md-offset-2 text-center"
-                    ><i class="fa fa-user bigicon"></i
-                  ></span>
-                  <div class="col-md-11">
-                    <input
-                      id="fname"
-                      name="name"
-                      type="text"
-                      placeholder="Lugar"
-                      class="form-control"
-                      v-model="form.lugar"
-                    />
-                  </div>
-                </div>
-                <br /><br /><br />
-                <div class="form-group">
-                  <span class="col-md-1 col-md-offset-2 text-center"
-                    ><i class="fa fa-user bigicon"></i
-                  ></span>
-                  <div class="col-md-11">
-                    <input
-                      id="fname"
-                      name="name"
-                      type="text"
-                      placeholder="Estado"
-                      class="form-control"
-                      v-model="form.estado"
-                    />
-                  </div>
-                </div>
-  
-                <!--<div class="form-group"> < State Button -->
-                <!-- <label for="state_id" class="control-label" >State</label>
-          <select class="form-control" id="state_id" v-model="form.estado" >
-              <option value="AL">activo</option>
-              <option value="AK">inactivo</option>
               
-          </select>                    
-      </div>-->
-                <br /><br /><br />
-                <div class="form-group">
-                  <span class="col-md-1 col-md-offset-2 text-center"
-                    ><i class="fa fa-user bigicon"></i
-                  ></span>
-  
-                  <div class="col-md-11">
-                    <form
-                      action="EditarUsuario"
-                      method="POST"
-                      enctype="multipart/form-data"
-                    >
-                      <input
-                        id="archivo"
-                        name="archivo"
-                        type="file"
-                        accept="jpg, .jpeg, .png"
-                        required
-                        placeholder="url"
-                        class="form-control"
-                      />
-                      <br>
-                      <input name="subir" type="submit" value="Subir" />
-                    </form>
-                    <br>
-                    <input
-                      id="fname"
-                      name="name"
-                      type="text"
-                      placeholder="url"
-                      class="form-control"
-                      v-model="form.urlExterna"
-                    />
-                    <br />
-                  </div>
-                </div>
                 <br><br>
                 <div class="form-group">
                   <span class="col-md-1 col-md-offset-2 text-center"
@@ -142,12 +73,13 @@
                       id="frname"
                       name="name"
                       type="text"
-                      placeholder="Responsable"
+                      placeholder="Genero"
                       class="form-control"
-                      v-model="form.responsable"
+                      v-model="form.genero"
                     />
                   </div>
                 </div>
+
                 <br>
                 <div class="form-group">
                   <span class="col-md-1 col-md-offset-2 text-center"
@@ -158,9 +90,9 @@
                       id="fname"
                       name="name"
                       type="date"
-                      placeholder="Responsable"
+                      placeholder="Fecha de Nacimiento"
                       class="form-control"
-                      v-model="form.fecha_caducidad"
+                      v-model="form.fecha_nacimiento"
                     />
                   </div>
                 </div>
@@ -173,16 +105,16 @@
                     <input
                       id="fname"
                       name="name"
-                      type="text"
-                      placeholder="Tipo"
+                      type="email"
+                      placeholder="Correo Electronico"
                       class="form-control"
-                      v-model="form.tipo"
+                      v-model="form.email"
                     />
                   </div>
                 
                 </div>
                 <br><br>
-                <b-button @click="EditarUsuario()">REGISTRAR</b-button>
+                <b-button @click="Actualizarinformacion()">REGISTRAR</b-button>
               </fieldset>
             </form>
           </div>
@@ -193,20 +125,17 @@
   <script>
   import axios from "axios";
   export default {
-    name: "EditarUsuario",
+    name: "AgregarUsuario",
     data() {
       return {
         form: {
-          nombre: null, // aqui se inicializa lo que  hace la conexion   de html con js
-          descripcion: null,
-          fecha_y_Hora: "",
-          lugar: "",
-          estado: "",
-          urlExterna: "",
-          responsable: "",
-          fecha_caducidad: "",
-          tipo: "",
-        },
+          identificacion: "", 
+          nombre: "",
+          apellidos: "",
+          genero: "",
+          fecha_nacimiento: "",
+          email: "",
+         },
       };
     },
     mounted(){
@@ -217,26 +146,23 @@
             this.axios
           .get("http://127.0.0.1:8000/api/usuario/"+this.$route.params.id)
           .then((data) => {
+            this.form.identificacion=data.data[0].identificacion;
             this.form.nombre=data.data[0].nombre;
-            this.form.descripcion=data.data[0].descripcion;
-            this.form.fecha_y_Hora=data.data[0].fecha_y_Hora;
-            this.form.lugar=data.data[0].lugar;
-            this.form.estado=data.data[0].estado;
-            this.form.urlExterna=data.data[0].urlExterna;
-            this.form.responsable=data.data[0].responsable;
-            this.form.fecha_caducidad=data.data[0].fecha_caducidad;
-            this.form.tipo=data.data[0].tipo;
-
-          });
+            this.form.apellidos.data.data[0].apellidos;
+            this.form.genero.data[0].genero;
+            this.form.fecha_nacimiento=data.data[0].fecha_nacimiento;
+            this.form.email=data.data[0].email;
+           
+           });
         },
 
 
         
-      ActualizarPublicacion() {
+      Actualizarinformacion() {
         this.axios
           .put("http://127.0.0.1:8000/api/usuario/"+this.$route.params.id,this.form )
           .then((data) => {
-            this.$router.push("/UserController")
+            this.$router.push("/ListarUsuarios")
           });
       },
 
