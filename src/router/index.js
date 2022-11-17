@@ -17,6 +17,7 @@ import CrearUsuario from '../views/Admin/Usuarios/CrearUsuario.vue'
 
 import editarpublicacion from '../views/Publicacionevento/editarpublicacion'
 import creararchivo from '../views/Archivo/creararchivo'
+import Detalle from '../views/Detalle/Detalle'
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,13 @@ const routes = [
     name: 'Publicacionevento',
     component: Publicacionevento
   },
+
+  {
+    path: '/Detalle',
+    name: 'Detalle',
+    component: Detalle
+  },
+
 
   {
     path: '/Nuevapublicacionevento',

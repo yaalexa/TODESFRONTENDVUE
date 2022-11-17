@@ -30,7 +30,7 @@
        }
       },
 
-      axios.post('/upload',{'image':this.avatar})
+     // axios.post('/upload',{'image':this.avatar})
 
     }
   }
