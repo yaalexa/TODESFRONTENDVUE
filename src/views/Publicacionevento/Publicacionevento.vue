@@ -10,6 +10,8 @@
         <b-button variant="danger" size="sm" @click="insertar(NuevaCategoria())">Nuevo</b-button>
         <b-button variant="primary" size="sm" @click="editar(editarpublicacion(row.item.id))">Editar</b-button>
         <b-button variant="danger" size="sm" @click="EliminarPublicacion(row.item.id)">Eliminar</b-button>
+        <b-button variant="danger" size="sm" @click="seleccionar(Seleccionarcategoria())">Seleccionar</b-button>
+       
       </template>
 
 
@@ -50,6 +52,8 @@ export default {
 
         { key: "eliminar", label: "Eliminar" },
 
+        { key: "seleccionar", label: "Seleccionar" },
+
       ],
 
     }
@@ -77,6 +81,9 @@ export default {
       this.$router.push('Nuevapublicacionevento')
     },
 
+    Seleccionarcategoria() {
+      this.$router.push('Detalle')
+    },
     editarpublicacion(id) {
      
       this.$router.push(`editarpublicacion/${id}`)
