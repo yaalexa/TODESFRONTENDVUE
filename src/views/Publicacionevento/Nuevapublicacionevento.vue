@@ -5,7 +5,7 @@
         <div class="well well-lg">
           <form class="form-horizontal" method="post">
             <fieldset>
-              <h1 class="text-center">Registro de Nueva Publicacion</h1>
+              <h1 class="text-center">Registro de  Evento / Noticia</h1>
               <hr />
 
               <div class="form-group">

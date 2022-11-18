@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <h1 class="text-center">Mostar Publicaciones eventos</h1>
+    <h1 class="text-center">Mostrar Eventos & Noticias</h1>
     <hr>
 
     <b-table striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
