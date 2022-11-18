@@ -45,10 +45,7 @@
 
 
 
-                <li>
-                    <router-link to="/Detalle">Detalle</router-link>
-                    <a></a> 
-                </li>
+              
 
                 <li>
                      <a>Roles</a>
