@@ -45,7 +45,25 @@ export default {
   methods: {
     NuevaCategoria() {
       this.$router.push('Mostrarcategorias')
+      
     },
+
+    mostrar(){
+            this.axios
+          .get("http://127.0.0.1:8000/api/publicacion/"+this.$route.params.id)
+          .then((data) => {
+            this.form.nombre=data.data[0].nombre;
+            this.form.descripcion=data.data[0].descripcion;
+            this.form.fecha_y_Hora=data.data[0].fecha_y_Hora;
+            this.form.lugar=data.data[0].lugar;
+            this.form.estado=data.data[0].estado;
+            this.form.urlExterna=data.data[0].urlExterna;
+            this.form.responsable=data.data[0].responsable;
+            this.form.fecha_caducidad=data.data[0].fecha_caducidad;
+            this.form.tipo=data.data[0].tipo;
+
+          });
+        },
   },
 };
 </script>
