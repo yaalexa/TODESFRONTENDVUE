@@ -7,7 +7,6 @@
 
         <b-button variant="warning" @click="NuevaCategoria()">Nueva Categoria</b-button>
         <b-button v-b-modal.modal-prevent-closing>Nueva Categoria</b-button>
-        
 
         <div class="mt-3">
             <div v-if="submittedNames.length === 0"></div>
@@ -32,22 +31,19 @@
             </form>
         </b-modal>
 
-
-
-        
-        
-
         <b-table :fields="encabezado" :items="categoria">
 
             <template v-slot:cell(eliminar)="data">
 
-                <b-button variant="danger" @click="EliminarCategoria(data.item.id)">Eliminar</b-button>
+                <b-button v-b-modal.modal-prevent-closing variant="danger" @click="EliminarCategoria(data.item.id)">Eliminar</b-button>
+                
+
             </template>
 
             <template v-slot:cell(editar)="data">
 
-                
-                <b-button variant="primary" v-b-modal.modal-prevent-closing>Editar</b-button>
+                <b-button variant="primary" size="sm" @click="editar(data.id)">Editar</b-button>
+
             </template>
             <template v-slot:cell(asignar)="data">
 
@@ -58,7 +54,6 @@
 
 
     </div>
-    
 </template>
     
 <script>
@@ -75,6 +70,7 @@ export default {
             cate:{
                 nombre:"",   // aqui se inicializa lo que  hace la conexion   de html con js
                 descripcion:"",
+                modalShow: false
                 
             },
             categoria: [],
@@ -84,8 +80,7 @@ export default {
                 { key: "descripcion", label: "Descripcion" },
                 { key: "editar", label: "Editar" },
                 { key: "eliminar", label: "Eliminar" },
-                { key: "asignar", label: "asignar" },
-                { key: "editar", label: "Editar" },
+                { key: "asignar", label: "asignar" }
 
 
             ],
@@ -126,15 +121,12 @@ export default {
         NuevaCategoria() {
             this.$router.push('NuevaCategoria')
         },
-         editarcategoria(id) {
-     
-     this.$router.push(`editarcategoria/${id}`)
-   },
 
         EliminarCategoria(id) {
             this.axios.delete("http://127.0.0.1:8000/api/categoria/" + id, this.form).then((data) => {
                 console.log(data);
-            }); 
+                
+            });
         },
         checkFormValidity() {
             const valid = this.$refs.form.checkValidity()
@@ -162,38 +154,7 @@ export default {
             this.$nextTick(() => {
                 this.$bvModal.hide('modal-prevent-closing')
             })
-        
-        },
-        checkFormValidity() {
-            const valid = this.$refs.form.checkValidity()
-            this.nameState = valid
-            return valid
-        },
-        resetModal() {
-            this.name = ''
-            this.nameState = null
-        },
-        handleOk(bvModalEvent) {
-            // Prevent modal from closing
-            bvModalEvent.preventDefault()
-            // Trigger submit handler
-            this.handleSubmit()
-        },
-        handleSubmit() {
-            // Exit when the form isn't valid
-            if (!this.checkFormValidity()) {
-                return
-            }
-            // Push the name to submitted names
-            this.submittedNames.push(this.name)
-            // Hide the modal manually
-            this.$nextTick(() => {
-                this.$bvModal.hide('modal-prevent-closing')
-            })
-        },
-        
-        
-        
+        }
 
 
     }
