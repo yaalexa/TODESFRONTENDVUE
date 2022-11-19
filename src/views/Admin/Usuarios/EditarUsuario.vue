@@ -44,6 +44,7 @@
                   </div>
                 </div>
 
+
                 <br /><br /><br />
                 <div class="form-group">
                   <span class="col-md-1 col-md-offset-2 text-center"
@@ -54,13 +55,14 @@
                       id="fname"
                       name="name"
                       type="text"
-                      placeholder="Apellidos"
+                      placeholder="Nombre"
                       class="form-control"
                       v-model="form.apellidos"
                     />
                   </div>
                 </div>
-               
+
+                          
                 <br /><br /><br />
               
                 <br><br>
@@ -148,8 +150,9 @@
           .then((data) => {
             this.form.identificacion=data.data[0].identificacion;
             this.form.nombre=data.data[0].nombre;
-            this.form.apellidos.data.data[0].apellidos;
-            this.form.genero.data[0].genero;
+            this.form.apellidos=data.data[0].apellidos;
+           
+            this.form.genero=data.data[0].genero;
             this.form.fecha_nacimiento=data.data[0].fecha_nacimiento;
             this.form.email=data.data[0].email;
            

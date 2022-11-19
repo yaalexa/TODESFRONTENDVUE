@@ -134,7 +134,7 @@ const routes = [
     },
 
     {
-        path: '/EditarUsuario',
+        path: '/EditarUsuario/:id',
         name: 'EditarUsuario',
         component: EditarUsuario
     },
