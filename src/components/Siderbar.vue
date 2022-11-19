@@ -47,6 +47,15 @@
                 </li>
 
                 <li>
+                    <router-link to="/creararchivo">Archivos</router-link>
+                    <a></a> 
+                </li>
+
+
+
+              
+
+                <li>
                      <a>Roles</a>
                 </li>
             </ul>

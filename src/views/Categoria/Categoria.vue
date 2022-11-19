@@ -2,17 +2,18 @@
 
     <div>
         <h1 class="text-center">Categoria</h1>
-
+      
+     
         
         <b-button variant="warning" size="sm" @click="insertar(NuevaCategoria())">Nueva Categoria</b-button>
 
         <b-table striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
 
             <template v-slot:cell(acciones)="row">
-
+                
                 <b-button variant="primary" size="sm" @click="editar(EditarCategoria(row.item.id))">Editar</b-button>
                 <b-button variant="danger" size="sm" @click="EliminarCategoria(row.item.id)">Eliminar</b-button>
-
+                <b-button variant="danger" size="sm" @click="seleccionar(Seleccionarcategoria(row.item.id))">Seleccionar</b-button>
             </template>
         </b-table>
 
@@ -43,6 +44,7 @@ export default {
                 { key: "descripcion", label: "Descripcion" },
 
                 { key: "acciones", label: "Acciones" },
+                { key: "seleccionar", label: "Seleccionar" },
 
 
             ],
@@ -70,6 +72,9 @@ export default {
 
             this.$router.push(`NuevaCategoria`)
         },
+        Seleccionarcategoria(id) {
+      this.$router.push(`Detalle/${id}`)
+    },
 
         EditarCategoria(id) {
 
