@@ -6,6 +6,12 @@
         <b-button variant="warning" @click="Publicacionevento()">Publicaciones</b-button>
         <b-button variant="primary" @click="Categoria()">Categorias</b-button>
 
+        <div class="mt-3">
+            <div v-if="submittedNames.length === 0"></div>
+            <ul v-else class="mb-0 pl-3">
+                <li v-for="name in submittedNames">{{ name }}</li>
+            </ul>
+        </div>
         <!--<b-modal id="modal-prevent-closing" ref="modal" title="Categoria" @show="resetModal" @hidden="resetModal"
             @GuardarCategoria="handleOk">
             <form ref="form" @submit.stop.prevent="handleSubmit">
@@ -96,6 +102,35 @@ export default {
             this.$router.push('Categoria')
         },
         
+        checkFormValidity() {
+            const valid = this.$refs.form.checkValidity()
+            this.nameState = valid
+            return valid
+        },
+        resetModal() {
+            this.name = ''
+            this.nameState = null
+        },
+        handleOk(bvModalEvent) {
+            // Prevent modal from closing
+            bvModalEvent.preventDefault()
+            // Trigger submit handler
+            this.handleSubmit()
+        },
+        handleSubmit() {
+            // Exit when the form isn't valid
+            if (!this.checkFormValidity()) {
+                return
+            }
+            // Push the name to submitted names
+            this.submittedNames.push(this.name)
+            // Hide the modal manually
+            this.$nextTick(() => {
+                this.$bvModal.hide('modal-prevent-closing')
+            })
+        }
+
+
     }
 }
 

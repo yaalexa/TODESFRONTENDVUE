@@ -21,10 +21,13 @@
                 <b-button variant="danger" size="sm" @click="EliminarPublicacion(data.item.id)">Eliminar</b-button>
             </template>
 
+            <template v-slot:cell(insertar)="insertar">
+             <b-button variant="danger" size="sm" @click="insertar(NuevaCategoria())">Nuevo</b-button>
+            </template>
            
         </b-table>
 
-
+9
     </div>
 </template>
     

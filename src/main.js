@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueSimpleAlert from "vue-simple-alert"
 import App from './App.vue'
 import router from './router'
 import axios from 'axios'
@@ -18,6 +19,8 @@ Vue.use(BootstrapVue)
 Vue.use(VueAxios,axios) //
 Vue.use(VueAxios,axios) //
 Vue.use(IconsPlugin)
+Vue.use(VueSimpleAlert)
+
 
 Vue.config.productionTip = false
 

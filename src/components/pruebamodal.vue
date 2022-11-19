@@ -72,7 +72,7 @@
           <div class="w-100">
             <p class="float-left">Modal Footer Content</p>
             <b-button
-              variant="primary"
+              variant="warning"
               size="sm"
               class="float-right"
               @click="show=false"

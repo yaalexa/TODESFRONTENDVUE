@@ -3,16 +3,18 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Mostrarcategorias from '../views/Categoria/MostrarCategoria.vue'
 import NuevaCategoria from '../views/Categoria/NuevaCategoria.vue'
+import EditarCategoria from '../views/Categoria/EditarCategoria.vue'
 import Login from '../views/Login.vue'
 import Dashboard from '../views/Admin/Dashboard.vue'
 import Vereventos from '../views/Admin/Eventos/Vereventos'
 import Registro from '../views/Registro.vue'
 import Categoria from '../views/Categoria/Categoria.vue'
 import pruebamodal from '../components/pruebamodal.vue'
-import editarcategoria from '../views/Categoria/editarcategoria'
+import DetalleCategoria from '../views/Categoria/DetalleCategoria.vue'
 import Publicacionevento from '../views/Publicacionevento/Publicacionevento.vue'
 import Nuevapublicacionevento from '../views/Publicacionevento/Nuevapublicacionevento'
-import detallecategoria from '../views/Categoria/detallecategoria.vue'
+
+
 
 import ListarUsuarios from '../views/Admin/Usuarios/ListarUsuarios'
 import AgregarUsuario from '../views/Admin/Usuarios/AgregarUsuario.vue'
@@ -60,6 +62,12 @@ const routes = [
    
   },
   {
+    path: '/DetalleCategoria',
+    name: '/DetalleCategoria',
+    component: DetalleCategoria
+   
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
@@ -72,11 +80,7 @@ const routes = [
     name:'Mostrarcategorias',
     component:Mostrarcategorias
   },
-  {
-    path:'/detallecategoria',
-    name:'detallecategoria',
-    component:detallecategoria
-  },
+ 
   {
     path:'/NuevaCategoria',
     name:'NuevaCategoria',
@@ -153,6 +157,12 @@ const routes = [
         name: 'NuevaCategoria',
         component: NuevaCategoria
     },
+    {
+      path: '/EditarCategoria/:id',
+      name: 'EditarCategoria',
+      component: EditarCategoria
+  },
+
 
     {
         path: '/ListarUsuarios',
@@ -169,11 +179,7 @@ const routes = [
       name: '/pruebamodal',
       component: pruebamodal
   },
-  {
-    path: '/editarcategoria/:id',
-    name: 'editarcategoria',
-    component: editarcategoria
-},
+ 
 ]
 
 const router = new VueRouter({
