@@ -1,10 +1,17 @@
 <template>
   <div>
 
-    <input type="file" name="image" @change="GetImage">
-    <img :src="avatar" alt="Imagenes">
-    <a href="#" class="btn btn-success" @click.prevent="upload">Upload</a>
-  </div>
+
+    <input type="file"
+    accept="application/img"
+    @changue="imagenObtenidaMetodo"
+    name="ruta"
+    id="imagen1"
+    
+    
+    
+    >
+    </div>
 
 </template>
 
@@ -14,7 +21,7 @@
     data(){
       return{
 
-        avatar:null
+        FormDat
       }
     },
 
