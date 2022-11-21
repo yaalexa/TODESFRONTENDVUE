@@ -19,10 +19,18 @@
   <td v-text="detalle.nombre_publicacion"></td>
   <td v-text="detalle.Nombresdecategorias"></td>
   <td v-text="detalle.Descripciodecategorias"></td>
-  <td ><b-button variant="danger" size="sm" @click="insertar(NuevaCategoria())">Nuevo</b-button>
+  <td>
+  <b-button
+  variant="danger"
+  size="sm"
+  @click="NuevaCategoria()"
+  >Nuevo</b-button
+  >
   </td>
   </tr>
   </tbody>
+
+  >
   </table>
   </div>
   </template>
@@ -36,23 +44,33 @@
   };
   },
   mounted() {
-  this.axios.get("http://127.0.0.1:8000/api/detalle_categoria/"+this.$route.params.id).then((response) => {
+  this.axios
+  .get(
+  "http://127.0.0.1:8000/api/detalle_categoria/" + this.$route.params.id
+  )
+  .then((response) => {
+  
+  this.$router.push("editarpublicacion");
   this.detalles = response.data;
   });
   },
   methods: {
-  NuevaCategoria() {
-  this.$router.push('Mostrarcategorias')
-  },
-  mostrar(){
-
-    alert(thi.$route.params.id)
-  this.axios
-  .get("http://127.0.0.1:8000/api/detalle_categoria/"+this.$route.params.id)
-  .then((data) => {
   
-  });
+ 
+  NuevaCategoria() {
+  this.$router.push("/Mostrarcategorias");
+ 
   },
+  mostrar() {
+  alert(thi.$route.params.id);
+  this.axios
+  .get(
+  "http://127.0.0.1:8000/api/detalle_categoria/" + this.$route.params.id
+  )
+  .then((data) => {});
+  },
+
+  
   },
   };
   </script>

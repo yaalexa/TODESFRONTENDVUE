@@ -11,7 +11,9 @@
             <template v-slot:cell(eliminar)="data">
                 <button @click="EliminarCategoria(id)" class="btn btn-danger"></button>
                 <b-button @click="EliminarCategoria(data.item.id)">Eliminar</b-button>
-            </template>
+                <b-button variant="danger" size="sm" @click="seleccionar(Seleccionarcategoria(data.item.id))">Seleccionar</b-button>
+     
+       </template>
         </b-table>
 
 
@@ -34,7 +36,8 @@ export default {
                 { key: "id", label: "Id" },
                 { key: "nombre", label: "Nombre" },
                 { key: "descripcion", label: "Descripcion" },
-                { key: "eliminar", label: "Eliminar" }
+                { key: "eliminar", label: "Eliminar" },
+                { key: "seleccionar", label: "Seleccionar categoria" }
 
             ],
 
@@ -46,6 +49,7 @@ export default {
     mounted() {
         this.getcategorias()
         this.EliminarCategoria(id)
+        this.seleccionarcategoria(id)
 
     },
 
@@ -65,7 +69,14 @@ export default {
             this.axios.delete("http://127.0.0.1:8000/api/categoria/"+id, this.form).then((data) => {
                 console.log(data);
             });
-        }
+        },
+
+        Seleccionarcategoria(id) {
+      //this.$router.push(`Detalle/${id}`)
+      this.axios.post("http://127.0.0.1:8000/api/categoria",this.form).then((data)=>
+         {console.log(data);
+        });
+    },
 
     }
 }
