@@ -6,24 +6,7 @@
         <b-button variant="warning" @click="Publicacionevento()">Publicaciones</b-button>
         <b-button variant="primary" @click="Categoria()">Categorias</b-button>
 
-        <!--<b-modal id="modal-prevent-closing" ref="modal" title="Categoria" @show="resetModal" @hidden="resetModal"
-            @GuardarCategoria="handleOk">
-            <form ref="form" @submit.stop.prevent="handleSubmit">
-                <b-form-group label="Categoria" label-for="name-input" invalid-feedback="Name is required"
-                    :state="nameState">
-
-                    <b-form-input id="name-input" v-model="cate.nombre" :state="nameState" required></b-form-input>
-                </b-form-group>
-
-                <b-form-group label="Descripcion Categoria" label-for="Descripcion-input"
-                    invalid-feedback="Name is required" :state="nameState">
-
-                    <b-form-input id="Descripcion-input" v-model="cate.descripcion" :state="nameState" required></b-form-input>
-                </b-form-group>
-                <b-button c variant="primary" @click="GuardarCategoria()">REGISTRAR</b-button>
-            </form>
-        </b-modal> -->
-
+        
         <b-table :fields="encabezado" :items="categoria">
 
             <template v-slot:cell(editar)="data">
@@ -94,10 +77,7 @@ export default {
         },
         Categoria() {
             this.$router.push('Categoria')
-        },
-        
-    }
-}
+        }},}
 
 </script>
     

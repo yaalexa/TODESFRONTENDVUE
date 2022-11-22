@@ -1,54 +1,56 @@
 <template>
+
     <div>
-    <h1>Mostar categorias</h1>
-
-    
-    <b-button  @click="NuevaCategoria()">Nueva Categoria</b-button>
-      <b-table sticky-header striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
-
-           
+        <h1 class="text-center">Categoria</h1>
       
+     
+        
+        <b-button variant="warning" size="sm" @click="insertar(NuevaCategoria())">Nueva Categoria</b-button>
 
-                <b-button variant="primary" size="sm" @click="editar(data.id)">Editar</b-button>
-              
+        <b-table striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
 
-            <template v-slot:cell(eliminar)="data">
-                <button @click="EliminarCategoria(id)" class="btn btn-danger"></button>
-                <b-button @click="EliminarCategoria(data.item.id)">Eliminar</b-button>
-
+            <template v-slot:cell(acciones)="row">
+                
+                <b-button variant="primary" size="sm" @click="editar(EditarCategoria(row.item.id))">Editar</b-button>
+                <b-button variant="danger" size="sm" @click="EliminarCategoria(row.item.id)">Eliminar</b-button>
+                <b-button variant="every" size="sm" @click="seleccionar(Seleccionarcategoria(row.item.id))">Seleccionar</b-button>
             </template>
-
-
-           
-
-           
         </b-table>
-  
-</div>
-</template>
 
+
+    </div>
+</template>
 <script>
 
-
-
 import axios from "axios"
+import EditarCategoria from "./EditarCategoria.vue"
 //import { response } from "express";
 // el axios permite  llamar  todas las  apis  que se hayan creado
+export default {
+    name: "Mostrarcategorias",
+    data() {
+        return {
+            cate:{
+                nombre:"",   // aqui se inicializa lo que  hace la conexion   de html con js
+                descripcion:"",
+                modalShow: false
+                
+            },
 
-    export default {
-        name:"Mostrarcategorias",
-        data(){
-          return {
-            categoria:[],
-            encabezado:[
-        {key:"id",label:"Id"},
-        {key:"nombre",label:"Categoria"},
-        { key:"descripcion",label:"Descripcion"},
-        { key:"Nuevo",label:"Nuevo"},
-        { key: "editar", label: "Editar" },
-        { key: "eliminar", label: "Eliminar" },
-          ]}},
-        components:{
+            categoria: [],
+            encabezado: [
+                { key: "id", label: "Id" },
+                { key: "nombre", label: "Nombre" },
+                { key: "descripcion", label: "Descripcion" },
+
+                { key: "acciones", label: "Acciones" },
+            
+
+            ],
+
+        }
+    },
+    components: {
 
     },
     mounted() {
@@ -66,20 +68,40 @@ import axios from "axios"
         },
 
         NuevaCategoria() {
-            this.$router.push('NuevaCategoria')
+
+            this.$router.push(`NuevaCategoria`)
+        },
+        Seleccionarcategoria(id) {
+      this.$router.push(`Detalle/${id}`)
+    },
+    
+        EditarCategoria(id) {
+
+            this.$router.push(`EditarCategoria/${id}`)
+        },
+
+        GuardarCategoria() {
+            this.axios.post("http://127.0.0.1:8000/api/categoria", this.cate).then((data) => {
+                console.log(data);
+
+                this.$router.push('/Categoria');
+            });
         },
 
         EliminarCategoria(id) {
-            this.axios.delete("http://127.0.0.1:8000/api/categoria/"+id, this.form).then((data) => {
+            this.axios.delete("http://127.0.0.1:8000/api/categoria/" + id, this.form).then((data) => {
                 console.log(data);
+                
             });
-        }
+
+        },
+
 
     }
 }
 
 </script>
-
+    
 <style>
 
 </style>

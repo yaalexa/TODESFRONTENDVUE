@@ -13,7 +13,7 @@
                 
                 <b-button variant="primary" size="sm" @click="editar(EditarCategoria(row.item.id))">Editar</b-button>
                 <b-button variant="danger" size="sm" @click="EliminarCategoria(row.item.id)">Eliminar</b-button>
-                <b-button variant="danger" size="sm" @click="seleccionar(Seleccionarcategoria(row.item.id))">Seleccionar</b-button>
+                <b-button variant="every" size="sm" @click="seleccionar(Seleccionarcategoria(row.item.id))">Asignar</b-button>
             </template>
         </b-table>
 
@@ -44,8 +44,7 @@ export default {
                 { key: "descripcion", label: "Descripcion" },
 
                 { key: "acciones", label: "Acciones" },
-                { key: "seleccionar", label: "Seleccionar" },
-
+            
 
             ],
 
@@ -72,9 +71,20 @@ export default {
 
             this.$router.push(`NuevaCategoria`)
         },
-        Seleccionarcategoria(id) {
-      this.$router.push(`Detalle/${id}`)
-    },
+        mostrar(){
+             this.axios
+           .get("http://127.0.0.1:8000/api/categoria/"+this.$route.params.id)
+           .then((data) => {
+             this.form.nombre=data.data[0].nombre;
+             this.form.descripcion=data.data[0].descripcion;
+ 
+           });
+         },
+
+         Seleccionarcategoria() {
+
+        this.$router.push('/Detalle/:id')
+         },
 
         EditarCategoria(id) {
 
