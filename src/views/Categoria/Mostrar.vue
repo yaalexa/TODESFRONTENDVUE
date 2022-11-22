@@ -72,10 +72,12 @@ export default {
         },
 
         Seleccionarcategoria(id) {
-      //this.$router.push(`Detalle/${id}`)
-      this.axios.post("http://127.0.0.1:8000/api/categoria",this.form).then((data)=>
+            
+      this.axios.post("http://127.0.0.1:8000/api/categoria").then((data)=>
          {console.log(data);
         });
+
+        this.$router.push(`Detalle/${id}`)
     },
 
     }
