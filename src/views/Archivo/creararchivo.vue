@@ -1,44 +1,45 @@
 <template>
-  <div>
-
-
-    <input type="file"
-    accept="application/img"
-    @changue="imagenObtenidaMetodo"
-    name="ruta"
-    id="imagen1"
-    
-    
-    
-    >
-    </div>
-
+  <div class="hello">
+    <input type="file" @change="onFileSelectd"/>
+    <button @click="onUpload">Upload</button>
+  </div>
 </template>
-
 <script>
-  export default {
+import axios from "axios";
+import Swal from "sweetalert2";
+export default {
+  name: "Crear_Eventos",
 
-    data(){
-      return{
+ 
+  data() {
+    return {
+   
+    selectedFile:null
 
-        FormDat
-      }
+    };
+  },
+  methods: {
+  
+    onFileSelectd(e){
+ 
+      this.selectedFile =e.target.file[0]
+      //console.log(e)
+ },
+
+ onUpload(){
+
+  const fd = new FormData()
+  fd.append('image',this.selectedFile, this.selectedFile.name)
+  this.axios.post("http://127.0.0.1:8000/api/archivoevento",fd)
+  .then(res=>{
+    console.log(res)
+  })
+ }
+    
     },
 
-    methods:{
-      GetImage(e){
-
-       let image= e.target.files[0];
-       let reader  = new FileReader();
-       reader.readAsDataURL(image);
-       reader.onload = e =>{
-      
-        this.avatar = e.target.result
-       }
-      },
-
-     // axios.post('/upload',{'image':this.avatar})
-
-    }
-  }
+   
+};
 </script>
+<style></style>
+  
