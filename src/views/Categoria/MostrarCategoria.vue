@@ -2,30 +2,23 @@
     <div>
     <h1>Mostar categorias</h1>
 
-    
     <b-button  @click="NuevaCategoria()">Nueva Categoria</b-button>
       <b-table sticky-header striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
 
-           
-      
-
+        
                 <b-button variant="primary" size="sm" @click="editar(data.id)">Editar</b-button>
               
-
             <template v-slot:cell(eliminar)="data">
                 <button @click="EliminarCategoria(id)" class="btn btn-danger"></button>
                 <b-button @click="EliminarCategoria(data.item.id)">Eliminar</b-button>
 
             </template>
-
-
-           
-
-           
-        </b-table>
+                <b-button variant="danger" size="sm" @click="seleccionar(Seleccionarcategoria(data.item.id))">Seleccionar</b-button>
+            </b-table>
+        </div>
+       </template>
+        
   
-</div>
-</template>
 
 <script>
 
@@ -34,8 +27,20 @@
 import axios from "axios"
 //import { response } from "express";
 // el axios permite  llamar  todas las  apis  que se hayan creado
+export default {
+    name: "Mostrarcategorias",
+    data() {
+        return {
+            categoria: [],
+            encabezado: [
+                { key: "id", label: "Id" },
+                { key: "nombre", label: "Nombre" },
+                { key: "descripcion", label: "Descripcion" },
+                { key: "eliminar", label: "Eliminar" },
+                { key: "seleccionar", label: "Seleccionar categoria" },
+        ],
 
-    export default {
+    /*export default {
         name:"Mostrarcategorias",
         data(){
           return {
@@ -47,13 +52,14 @@ import axios from "axios"
         { key:"Nuevo",label:"Nuevo"},
         { key: "editar", label: "Editar" },
         { key: "eliminar", label: "Eliminar" },
-          ]}},
+          ]}},*/
         components:{
 
     },
     mounted() {
         this.getcategorias()
         this.EliminarCategoria(id)
+        this.seleccionarcategoria(id)
 
     },
 
@@ -73,10 +79,19 @@ import axios from "axios"
             this.axios.delete("http://127.0.0.1:8000/api/categoria/"+id, this.form).then((data) => {
                 console.log(data);
             });
-        }
+        },
+
+        Seleccionarcategoria(id) {
+            
+      this.axios.post("http://127.0.0.1:8000/api/categoria").then((data)=>
+         {console.log(data);
+        });
+
+        this.$router.push(`Detalle/${id}`)
+    },
 
     }
-}
+}}}
 
 </script>
 

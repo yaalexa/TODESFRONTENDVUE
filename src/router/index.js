@@ -20,6 +20,9 @@ import ListarUsuarios from '../views/Admin/Usuarios/ListarUsuarios'
 import AgregarUsuario from '../views/Admin/Usuarios/AgregarUsuario.vue'
 import CrearUsuario from '../views/Admin/Usuarios/CrearUsuario.vue'
 
+import editarpublicacion from '../views/Publicacionevento/editarpublicacion'
+import creararchivo from '../views/Archivo/creararchivo'
+import Detalle from '../views/Detalle/Detalle'
 
 Vue.use(VueRouter)
 
@@ -32,6 +35,13 @@ const routes = [
     name: 'Publicacionevento',
     component: Publicacionevento
   },
+
+  {
+    path: '/Detalle/:id',
+    name: 'Detalle',
+    component: Detalle
+  },
+
 
   {
     path: '/Nuevapublicacionevento',
@@ -49,6 +59,12 @@ const routes = [
     path: '/Vereventos',
     name: 'Vereventos',
     component: Vereventos
+  },
+
+  {
+    path: '/creararchivo',
+    name: 'creararchivo',
+    component: creararchivo
   },
   {
     path: '/Mostrarcategorias',
@@ -156,11 +172,18 @@ const routes = [
         component: NuevaCategoria
     },
     {
+
       path: '/EditarCategoria/:id',
       name: 'EditarCategoria',
       component: EditarCategoria
   },
 
+
+{
+        path: '/editarpublicacion/:id',
+        name: 'editarpublicacion',
+        component: editarpublicacion
+    },
 
     {
         path: '/ListarUsuarios',
@@ -172,11 +195,7 @@ const routes = [
         name: '/AgregarUsuario"',
         component: AgregarUsuario
     },
-    {
-      path: '/pruebamodal',
-      name: '/pruebamodal',
-      component: pruebamodal
-  },
+  
 ]
 
 const router = new VueRouter({

@@ -5,7 +5,7 @@
         <div class="well well-lg">
           <form class="form-horizontal" method="post">
             <fieldset>
-              <h1 class="text-center">Registro de Nueva Publicacion</h1>
+              <h1 class="text-center">Registro de  Evento / Noticia</h1>
               <hr />
 
               <div class="form-group">
@@ -23,8 +23,8 @@
                   />
                 </div>
               </div>
-
-              <div class="form-group ">
+              <br /><br /><br />
+              <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"
                   ><i class="fa fa-user bigicon"></i
                 ></span>
@@ -39,8 +39,7 @@
                   />
                 </div>
               </div>
-
-
+              <br /><br /><br />
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"
                   ><i class="fa fa-user bigicon"></i
@@ -56,7 +55,7 @@
                   />
                 </div>
               </div>
-
+              <br /><br /><br />
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"
                   ><i class="fa fa-user bigicon"></i
@@ -72,7 +71,7 @@
                   />
                 </div>
               </div>
-
+              <br /><br /><br />
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"
                   ><i class="fa fa-user bigicon"></i
@@ -97,12 +96,31 @@
             
         </select>                    
     </div>-->
-
+              <br /><br /><br />
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"
                   ><i class="fa fa-user bigicon"></i
                 ></span>
+
                 <div class="col-md-11">
+                  <form
+                    action="Nuevapublicacionevento"
+                    method="POST"
+                    enctype="multipart/form-data"
+                  >
+                    <input
+                      id="archivo"
+                      name="archivo"
+                      type="file"
+                      accept="jpg, .jpeg, .png"
+                      required
+                      placeholder="url"
+                      class="form-control"
+                    />
+                    <br>
+                    <input name="subir" type="submit" value="Subir" />
+                  </form>
+                  <br>
                   <input
                     id="fname"
                     name="name"
@@ -111,9 +129,10 @@
                     class="form-control"
                     v-model="form.urlExterna"
                   />
+                  <br />
                 </div>
               </div>
-
+              <br><br>
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"
                   ><i class="fa fa-user bigicon"></i
@@ -129,7 +148,7 @@
                   />
                 </div>
               </div>
-
+              <br>
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"
                   ><i class="fa fa-user bigicon"></i
@@ -145,7 +164,7 @@
                   />
                 </div>
               </div>
-
+              <br><br>  <br>
               <div class="form-group">
                 <span class="col-md-1 col-md-offset-2 text-center"
                   ><i class="fa fa-user bigicon"></i
@@ -160,8 +179,9 @@
                     v-model="form.tipo"
                   />
                 </div>
+              
               </div>
-
+              <br><br>
               <b-button @click="GuardarPublicacion()">REGISTRAR</b-button>
             </fieldset>
           </form>
@@ -207,18 +227,15 @@ export default {
 
 <style>
 #fname {
-  
   padding: 1em;
   float: right;
 }
 
 .form-horizontal {
- 
   padding-left: 60%;
 }
 
 .container {
-  
 }
 #freponsable {
   padding: auto;

@@ -2,19 +2,19 @@
 
     <div>
         <h1 class="text-center">Categoria</h1>
-
+      
+     
         
         <b-button variant="warning" size="sm" @click="insertar(NuevaCategoria())">Nueva Categoria</b-button>
 
         <b-table striped hover class="text-black bg-white" :fields="encabezado" :items="categoria">
 
             <template v-slot:cell(acciones)="row">
-
+                
                 <b-button variant="primary" size="sm" @click="editar(EditarCategoria(row.item.id))">Editar</b-button>
                 <b-button variant="danger" size="sm" @click="EliminarCategoria(row.item.id)">Eliminar</b-button>
-
+                <b-button variant="every" size="sm" @click="seleccionar(Seleccionarcategoria(row.item.id))">Asignar</b-button>
             </template>
-
         </b-table>
 
 
@@ -30,6 +30,12 @@ export default {
     name: "Mostrarcategorias",
     data() {
         return {
+            cate:{
+                nombre:"",   // aqui se inicializa lo que  hace la conexion   de html con js
+                descripcion:"",
+                modalShow: false
+                
+            },
 
             categoria: [],
             encabezado: [
@@ -38,7 +44,7 @@ export default {
                 { key: "descripcion", label: "Descripcion" },
 
                 { key: "acciones", label: "Acciones" },
-
+            
 
             ],
 
@@ -65,6 +71,20 @@ export default {
 
             this.$router.push(`NuevaCategoria`)
         },
+        mostrar(){
+             this.axios
+           .get("http://127.0.0.1:8000/api/categoria/"+this.$route.params.id)
+           .then((data) => {
+             this.form.nombre=data.data[0].nombre;
+             this.form.descripcion=data.data[0].descripcion;
+ 
+           });
+         },
+
+         Seleccionarcategoria() {
+
+        this.$router.push('/Detalle/:id')
+         },
 
         EditarCategoria(id) {
 
@@ -82,37 +102,10 @@ export default {
         EliminarCategoria(id) {
             this.axios.delete("http://127.0.0.1:8000/api/categoria/" + id, this.form).then((data) => {
                 console.log(data);
+                
             });
 
         },
-
-        checkFormValidity() {
-            const valid = this.$refs.form.checkValidity()
-            this.nameState = valid
-            return valid
-        },
-        resetModal() {
-            this.name = ''
-            this.nameState = null
-        },
-        handleOk(bvModalEvent) {
-            // Prevent modal from closing
-            bvModalEvent.preventDefault()
-            // Trigger submit handler
-            this.handleSubmit()
-        },
-        handleSubmit() {
-            // Exit when the form isn't valid
-            if (!this.checkFormValidity()) {
-                return
-            }
-            // Push the name to submitted names
-            this.submittedNames.push(this.name)
-            // Hide the modal manually
-            this.$nextTick(() => {
-                this.$bvModal.hide('modal-prevent-closing')
-            })
-        }
 
 
     }
