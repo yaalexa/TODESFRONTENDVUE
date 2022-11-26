@@ -9,9 +9,8 @@
         <b-table :fields="encabezado" :items="categoria">
 
             <template v-slot:cell(eliminar)="data">
-                <button @click="EliminarCategoria(id)" class="btn btn-danger"></button>
-                <b-button @click="EliminarCategoria(data.item.id)">Eliminar</b-button>
-                <b-button variant="danger" size="sm" @click="seleccionar(Seleccionarcategoria(data.item.id))">Seleccionar</b-button>
+        
+                <b-button variant="danger" size="sm" @click="seleccionar(Seleccionarcategoria(data.item.id))">Seleccionardddd</b-button>
      
        </template>
         </b-table>
@@ -73,7 +72,7 @@ export default {
 
         Seleccionarcategoria(id) {
             
-      this.axios.post("http://127.0.0.1:8000/api/categoria").then((data)=>
+      this.axios.post("http://127.0.0.1:8000/api/detalle_categoria").then((data)=>
          {console.log(data);
         });
 

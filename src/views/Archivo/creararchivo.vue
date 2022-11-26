@@ -20,10 +20,10 @@ export default {
   },
   methods: {
   
-    onFileSelectd(e){
+    onFileSelectd(event){
  
-      this.selectedFile =e.target.file[0]
-      //console.log(e)
+      this.selectedFile =event.target.file[0]
+   // console.log(e)
  },
 
  onUpload(){
