@@ -10,7 +10,9 @@
         <b-button variant="danger" size="sm" @click="insertar(NuevaCategoria())">Nuevo</b-button>
         <b-button variant="primary" size="sm" @click="editar(editarpublicacion(row.item.id))">Editar</b-button>
         <b-button variant="danger" size="sm" @click="EliminarPublicacion(row.item.id)">Eliminar</b-button>
-        <b-button variant="danger" size="sm" @click="seleccionar(Seleccionarcategoria(row.item.id))">Categorias</b-button>
+
+        <b-button variant="danger" size="sm" @click="seleccionar(Seleccionarcategoria(row.item.id))">ASIGNAR</b-button>
+
        
       </template>
            

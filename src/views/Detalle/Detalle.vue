@@ -1,42 +1,45 @@
 <template>
-<div class="p-4" id="app">
-<h1>Detalle Categoria</h1>
+  <div class="p-4" id="app">
+  <h1>Categoria Asignada</h1>
+  <table class="table table-bordered table-dark table-striped">
+  <thead>
+    <div>
+    <b-button
+  variant="danger"
+  size="sm"
+  @click="NuevaCategoria()"
+  >Nuevo</b-button
+  >
+  </div>
+  <tr>
+  <th>ID</th>
+  <th>Prioridad</th>
+  <!--<th>Publicacion</th>-->
+  <th>Categoria</th>
+  <th>Descripcion de la Categoria</th>
+  </tr>
+  </thead>
+  
+  <tbody>
+  <tr v-for="detalle in detalles" :key="detalle.id">
+  <td v-text="detalle.id_detalle"></td>
+  <!---<td v-text="detalle.Prioridad_detallle"></td>-->
+  <td v-text="detalle.Prioridad_detallle"></td>
+  <td v-text="detalle.Nombresdecategorias"></td>
+  <td v-text="detalle.Descripciodecategorias"></td>
+  
+ 
+  
+  </tr>
 
-<b-button
-variant="danger"
-size="sm"
-@click="NuevaCategoria()"
->Asignar nueva categoria</b-button
->
+  
+  </tbody>
 
-
-<table class="table table-bordered table-dark table-striped">
-
-<thead>
-<tr>
-<th>ID</th>
-<th>Prioridad</th>
-<!--<th>Publicacion</th>-->
-<th>Categoria</th>
-<th>Descripcion</th>
-</tr>
-</thead>
-<tbody>
-<tr v-for="detalle in detalles" :key="detalle.id">
-<td v-text="detalle.id_detalle"></td>
-<!---<td v-text="detalle.Prioridad_detallle"></td>-->
-<td v-text="detalle.Prioridad_detallle"></td>
-<td v-text="detalle.Nombresdecategorias"></td>
-<td v-text="detalle.Descripciodecategorias"></td>
-
-</tr>
-</tbody>
-
->
-</table>
-</div>
-</template>
-<script>
+  >
+  </table>
+  </div>
+  </template>
+  <script>
   import axios from "axios";
   export default {
   name: "Inicio",
@@ -52,7 +55,7 @@ size="sm"
   )
   .then((response) => {
   
-  this.$router.push("editarpublicacion");
+  this.$router.push("Detalle");
   this.detalles = response.data;
   });
   },
@@ -60,7 +63,7 @@ size="sm"
   
  
   NuevaCategoria() {
-  this.$router.push("/Categoria");
+  this.$router.push("/Mostrarcategorias");
  
   },
   mostrar() {
@@ -71,7 +74,6 @@ size="sm"
   )
   .then((data) => {});
   },
-
   
   },
   };
